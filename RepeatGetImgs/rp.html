@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+
+	<title>Document</title>
+	<script src="https://cdn.bootcss.com/jquery/3.5.1/jquery.min.js"></script>
+	<style>
+		.imgset {
+			width: 100px;
+		}
+
+		.desc_set {
+			display: inline-block;
+			text-align: center;
+			width: 100px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="imgset"></div>
+	<div id="desset"></div>
+	<div>
+		file={<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;.\RepeatGetImgs\rp.html<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;.\RepeatGetImgs\img\*.jpg<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;.\RepeatGetImgs\img\sample.json<br>
+		}<br>
+	</div>
+</body>
+
+<script>
+	setDisc()
+	for (var i = 1; i < 10; i++) {
+		setImg(i)
+	}
+
+	function setImg(i) {
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", "./img/" + i.toString() + '.jpg');
+		xhr.responseType = "blob"
+		xhr.onload = response
+		xhr.send()
+		function response(e) {
+			if (xhr.response != null) {
+				var urlCreator = window.URL || window.webkitURL;
+				var imageUrl = urlCreator.createObjectURL(this.response);
+				if (xhr.status == 200) {
+					document.querySelector("#imgset").innerHTML += '<img class="imgset" src="' + imageUrl + '">'
+				}
+			}
+		}
+	}
+
+	function setDisc() {
+		var xhrstr = new XMLHttpRequest()
+		xhrstr.open("GET", "./img/" + 'sample' + '.json');
+		xhrstr.responseType = "json"
+		xhrstr.onload = response
+		xhrstr.send()
+		function response(e) {
+			if (xhrstr.status == 200) {
+				var jsonobj_imgset = xhrstr.response
+				for (var i = 0; i < jsonobj_imgset.length; i++) {
+					document.querySelector("#desset").innerHTML += '<span class="desc_set">' + jsonobj_imgset[i].description + '</span>'
+				}
+			}
+		}
+	}
+</script>
+
+
+</html>

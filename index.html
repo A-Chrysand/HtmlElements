@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <title>index</title>
+</head>
+
+<body style="margin: 0;">
+    <div id="div_vueapp">
+        <nav id="navline">
+            <div v-for="(item,i) in containeritem" class="nav_item">
+                <a :href="'#div_'+item.title">{{item.title}}</a><span>&lt;|&gt;</span>
+            </div>
+        </nav>
+        <div id="div_container">
+            <div class="itemblock" v-for="(item,i) in containeritem" :id="'div_'+item.title">
+                <span class="title">{{item.title}}</span><span class="techitem">{{item.tech}}</span>
+                <iframe frameborder="1" :src="item.src" frameborder="0"></iframe>
+            </div>
+        </div>
+
+    </div>
+</body>
+<script>
+    var vum = new Vue({
+        el: '#div_vueapp',
+        data: {
+            navlist: ['pg1', 'pg2', 'pg3', 'pg4', 'pg5',],
+            containeritem: [
+                { title: "LeftSideMenu(2stop)", tech: "responsive", src: "./LeftSideMenu/2stop/2stop.html" },
+                { title: "LeftSideMenu(3stop)", tech: "responsive", src: "./LeftSideMenu/3stop/3stop.html" },
+                { title: "repeat get imgs", tech: "", src: "./RepeatGetImgs/rp.html" },
+                { title: "bookmark", tech: "", src: "./bookmark/index.html" }
+            ]
+        },
+        methods: {
+
+        }
+    })
+</script>
+<style>
+    iframe {
+        width: 100%;
+        height: 50vh;
+        border: medium solid rgb(250, 0, 255)
+    }
+
+    span.title {
+
+        font-size: 1.75em;
+        font-weight: 500;
+        line-height: 1.2;
+    }
+
+    span.techitem {
+        font-size: 1.25rem;
+        line-height: 1.7;
+        display: block;
+        float: right;
+    }
+</style>
+<script>
+    var fisttime = true
+    window.onload = function () {
+        console.log('onload')
+        document.addEventListener("scroll", function () {
+            var value_scroll = document.documentElement.scrollTop || document.body.scrollTop;
+            if (value_scroll >= 232) {
+                //document.querySelector("nav").addClass("navfloatdown").removeClass("navfloatup")
+                document.querySelector("nav").classList.add("navfloatdown")
+                document.querySelector("nav").classList.remove("navfloatup", "navstatic")
+                //$("#div_container").css({ "margin-top": "32px" })
+                document.querySelector("#div_container").style.marginTop = '32px'
+                fisttime = false
+            } else if (value_scroll < 232 && !fisttime && value_scroll > 75) {
+                //$("nav").addClass("navfloatup").removeClass("navfloatdown")
+                document.querySelector("nav").classList.add("navfloatup")
+                document.querySelector("nav").classList.remove("navfloatdown", "navstatic")
+            } else if (value_scroll < 75 && !fisttime) {
+                //$("nav").removeClass().addClass('navstatic')
+                document.querySelector("nav").classList.remove("navfloatdown", "navfloatup")
+                document.querySelector("nav").classList.add("navstatic")
+                //$("#div_container").css({ "margin-top": "0px" })
+                document.querySelector("#div_container").style.marginTop = '0px'
+                fisttime = true
+            }
+
+        })
+    }
+</script>
+<style>
+    nav.navstatic {
+        position: static;
+    }
+
+    nav.navfloatdown {
+        position: fixed;
+        top: 0px;
+        animation-name: navf;
+        animation-duration: 0.375s;
+    }
+
+    nav.navfloatup {
+        position: fixed;
+        top: -32px;
+        animation-name: navf2;
+        animation-duration: 0.3s;
+    }
+
+    @keyframes navf {
+        from {
+            top: -32px;
+        }
+
+        to {
+            top: 0px;
+        }
+    }
+
+    @keyframes navf2 {
+        from {
+            top: 0px;
+        }
+
+        to {
+            top: -32px;
+        }
+    }
+
+
+    nav div {
+        display: inline-flex;
+    }
+
+    .nav_item {
+        display: inline-block;
+        text-align: center;
+        background-color: wheat;
+    }
+
+    .nav_item a {
+        color: rgb(255, 60, 0);
+        line-height: 32px;
+    }
+</style>
+
+
+</html>

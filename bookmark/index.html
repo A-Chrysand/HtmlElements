@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body style="margin: 0">
+    <div id="vuapp">
+        <nav id="navline">
+            <div style="display: inline-flex;">
+                <div class="nav_item"><a href="#d1">1</a></div>
+                <div class="nav_item"><a href="#d2">2</a> </div>
+                <div class="nav_item"><a href="#d3">3</a> </div>
+                <div class="nav_item"><a href="#d4">4</a> </div>
+                <div class="nav_item"><a href="#d5">5</a> </div>
+                <div class="nav_item"><a href="#d6">6</a> </div>
+            </div>
+            <!-- 为什么不用列表渲染呢？ -->
+        </nav>
+        <div id="cont">
+            <div id="d1" class="color_block" style="background-color: aquamarine;">
+                <span style="font-size: 1rem;display: block;height: 300px;">
+                    file=.\bookmark\index.html
+                </span>
+            </div>
+            <div id="d2" class="color_block" style="background-color: antiquewhite;">2</div>
+            <div id="d3" class="color_block" style="background-color: bisque;">3</div>
+            <div id="d4" class="color_block" style="background-color: cadetblue;">4</div>
+            <div id="d5" class="color_block" style="background-color: darkcyan;">5</div>
+            <div id="d6" class="color_block" style="background-color: forestgreen;">6</div>
+        </div>
+
+    </div>
+</body>
+<script>
+    var fisttime = true
+    window.onscroll = function () {
+        var value_scroll = document.documentElement.scrollTop || document.body.scrollTop;
+        if (value_scroll >= 232) {
+            $("nav").addClass("navfloatdown").removeClass("navfloatup")
+            $("#cont").css({ "margin-top": "32px" })
+            fisttime = false
+        } else if (value_scroll < 232 && !fisttime && value_scroll > 75) {
+            $("nav").addClass("navfloatup").removeClass("navfloatdown")
+        } else if (value_scroll < 75 && !fisttime) {
+            $("nav").removeClass().addClass('navstatic')
+            $("#cont").css({ "margin-top": "0px" })
+            fisttime = true
+        }
+
+    }
+</script>
+<style>
+    nav.navstatic {
+        position: static;
+    }
+
+    nav.navfloatdown {
+        position: fixed;
+        animation-name: navf;
+        animation-duration: 0.375s;
+        top: 0px;
+    }
+
+    nav.navfloatup {
+        position: fixed;
+        top: -32px;
+        animation-name: navf2;
+        animation-duration: 0.3s;
+    }
+
+    @keyframes navf {
+        from {
+            top: -32px;
+        }
+
+        to {
+            top: 0px;
+        }
+    }
+
+    @keyframes navf2 {
+        from {
+            top: 0px;
+        }
+
+        to {
+            top: -32px;
+        }
+    }
+
+
+    .nav_item {
+        display: inline-block;
+        width: 4rem;
+        background-color: wheat;
+    }
+
+    .nav_item a {
+        line-height: 32px;
+        text-decoration: none;
+        color: black;
+    }
+
+    .color_block {
+        width: 100%;
+        height: 300px;
+        text-align: center;
+        line-height: 300px;
+        font-size: 4rem;
+    }
+</style>
+
+</html>

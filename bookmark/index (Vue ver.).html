@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <title>Document</title>
+</head>
+
+<body style="margin: 0">
+    <div id="vuapp">
+        <nav id="navline">
+            <div v-for="(item,i) in navlist" class="nav_item"><a :href="'#d'+i">{{item}}</a></div>
+        </nav>
+        <div id="cont">
+            <div v-for="(item,i) in divlist" :id="'d'+i" :style="'background-color:'+item.bgc" class="color_block">
+                {{item.data}}
+            </div>
+        </div>
+
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: "#vuapp",
+        data: {
+            navlist: ['pg1', 'pg2', 'pg3', 'pg4', 'pg5',],
+            divlist: [
+                { 'bgc': 'aquamarine', 'data': "11" },
+                { 'bgc': 'antiquewhite', 'data': "22" },
+                { 'bgc': 'bisque', 'data': "33" },
+                { 'bgc': 'cadetblue', 'data': "44" },
+                { 'bgc': 'darkcyan', 'data': "55" },
+                { 'bgc': 'forestgreen', 'data': "66" }
+            ]
+        },
+        methods: {
+        }
+
+    })
+</script>
+<script>
+    var fisttime = true
+    window.onload = function () {
+        console.log('onload')
+        document.addEventListener("scroll", function () {
+            var value_scroll = document.documentElement.scrollTop || document.body.scrollTop;
+            if (value_scroll >= 232) {
+                //document.querySelector("nav").addClass("navfloatdown").removeClass("navfloatup")
+                document.querySelector("nav").classList.add("navfloatdown")
+                document.querySelector("nav").classList.remove("navfloatup", "navstatic")
+                //$("#cont").css({ "margin-top": "32px" })
+                document.querySelector("#cont").style.marginTop = '32px'
+                fisttime = false
+            } else if (value_scroll < 232 && !fisttime && value_scroll > 75) {
+                //$("nav").addClass("navfloatup").removeClass("navfloatdown")
+                document.querySelector("nav").classList.add("navfloatup")
+                document.querySelector("nav").classList.remove("navfloatdown", "navstatic")
+            } else if (value_scroll < 75 && !fisttime) {
+                //$("nav").removeClass().addClass('navstatic')
+                document.querySelector("nav").classList.remove("navfloatdown", "navfloatup")
+                document.querySelector("nav").classList.add("navstatic")
+                //$("#cont").css({ "margin-top": "0px" })
+                document.querySelector("#cont").style.marginTop = '0px'
+                fisttime = true
+            }
+
+        })
+    }
+</script>
+<style>
+    nav.navstatic {
+        position: static;
+    }
+
+    nav.navfloatdown {
+        position: fixed;
+        top: 0px;
+        animation-name: navf;
+        animation-duration: 0.375s;
+    }
+
+    nav.navfloatup {
+        position: fixed;
+        top: -32px;
+        animation-name: navf2;
+        animation-duration: 0.3s;
+    }
+
+    @keyframes navf {
+        from {
+            top: -32px;
+        }
+
+        to {
+            top: 0px;
+        }
+    }
+
+    @keyframes navf2 {
+        from {
+            top: 0px;
+        }
+
+        to {
+            top: -32px;
+        }
+    }
+
+    nav {
+        margin-left: calc(50% - (6 / 2 * 4rem));
+    }
+
+    nav div {
+        display: inline-flex;
+    }
+
+    .nav_item {
+        display: inline-block;
+        width: 4rem;
+        text-align: center;
+        background-color: wheat;
+    }
+
+    .nav_item a {
+        line-height: 32px;
+        text-decoration: none;
+        color: black;
+    }
+
+    .color_block {
+        height: 300px;
+        text-align: center;
+        line-height: 300px;
+        font-size: 4rem;
+    }
+</style>
+
+</html>

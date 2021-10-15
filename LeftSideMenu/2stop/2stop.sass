@@ -1,0 +1,95 @@
+$sidebar-fullwidth: 250px
+$sidebar-halfwidth: 0px
+$navbar-height: 50px
+$sm: 576px
+$md: 992px
+$animatetime0_25s: 0.25s
+body
+	margin: 0px
+	.offset-left-nav
+		@media (min-width:576px) and (max-width: 992px)
+			margin-left: 0
+		@media screen and (min-width: 992px)
+			margin-left: $sidebar-fullwidth
+
+.control-show
+	width: $sidebar-fullwidth
+	.alink
+		display: block
+	@media (max-width: 992px)
+		box-shadow: 0 0 30px rgba(0,0,0,0.25)
+
+.control-coll
+	.alink
+		display: none
+	@media ( max-width:  $md)
+		width: 0
+
+@media (min-width:  $md)
+	.control-show,.control-coll
+		width: $sidebar-fullwidth
+		display: block
+		.alink
+			display: block
+
+.side-bar
+	position: fixed
+	left: 0
+	bottom: 0
+	height: 100vh
+	transition: all $animatetime0_25s ease-in-out
+	background-color: #a9e5fd
+	&:after
+		background-color: #0059ff
+		content: ""
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		height: $navbar-height
+		z-index: -1
+	ul
+		position: absolute
+		transform: translate(-50%, 0)
+		top: $navbar-height
+		left: 50%
+		text-align: center
+		padding-left: 0
+		overflow: hidden
+
+		li
+			list-style: none
+			font-size: 22px
+			padding: 10px
+			transition: $animatetime0_25s
+			a
+				color: white
+				text-decoration: none
+				white-space: nowrap
+				transition: $animatetime0_25s
+				&:hover
+					text-decoration: none
+					color: #fd7e14
+
+	.toggle-hamburg-icon
+		background-color: #ff7e0017
+		@media ( max-width: 992px )
+			display: inline-block
+		@media ( min-width: 992px )
+			display: none
+
+		.hamburg
+			color: black
+			padding: 8px 12px
+			font-size: 20px
+			cursor: pointer
+			transition: all 1s ease-in-out
+
+		.close-side
+			display: none
+			color: black
+			background-color: #ff7e0017
+			padding: 8px 12px
+			font-size: 20px
+			cursor: pointer
+			transition: all 1s ease-in-out

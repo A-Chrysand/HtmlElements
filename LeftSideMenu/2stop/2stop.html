@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<!--todo 采用sm-open/close   md-close/open   lg-open的类来实现-->
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./2stop.css">
+	<title>2st</title>
+	<script>
+		let toggleNavStatus = false;
+		function toggleNav() {
+			if (toggleNavStatus === false) {
+				document.querySelector(".side-bar").classList.remove('control-coll')
+				document.querySelector(".side-bar").classList.add('control-show')
+				toggleNavStatus = true;
+			}
+			else if (toggleNavStatus === true) {
+				document.querySelector(".side-bar").classList.remove('control-show')
+				document.querySelector(".side-bar").classList.add('control-coll')
+				toggleNavStatus = false;
+			}
+
+		}
+		window.onload = function () {
+			document.querySelector('.hamburg').addEventListener('click', function () {
+				document.querySelector('.hamburg').style.display = "none"
+				document.querySelector('.close-side').style.display = "block"
+			})
+			document.querySelector('.close-side').addEventListener('click', function () {
+				document.querySelector('.hamburg').style.display = "block"
+				document.querySelector('.close-side').style.display = "none"
+			})
+		}
+	</script>
+</head>
+
+<body>
+	<header style="width: 100%;background-color: wheat;">
+		<p class="nav-brand" style="text-align: center;line-height: 50px;margin: 0;">This is a nav brand</p>
+	</header>
+	<aside class="side-bar control-coll">
+		<div class="toggle-hamburg-icon" onclick="toggleNav()">
+			<!--Here I simply use a yellow and red block to make a hamburg button-->
+			<!--Hamburg button auto stick to left-top,you can add any horziontal nav -->
+			<i class="fa fa-bars hamburg"
+				style="padding: 0; z-index:999; display: block; width: 50px;height: 50px;background-color: yellow;">close</i>
+			<i class="fa fa-times close-side"
+				style="padding: 0; z-index:999;width: 50px;height: 50px;background-color: red;">open</i>
+		</div>
+		<ul>
+			<li>
+				<!--You can replace class d50 with some icon-->
+				<a href="#" class="alink">item1</a>
+
+			</li>
+			<li>
+				<a href="#" class="alink">item2</a>
+
+			</li>
+			<li>
+				<a href="#" class="alink">item3</a>
+
+			</li>
+			<li>
+				<a href="#" class="alink">item4</a>
+
+			</li>
+		</ul>
+	</aside>
+	<div class="container offset-left-nav">
+		file={<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;.\LeftSideMenu\2stop\2stop.html<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;.\LeftSideMenu\2stop\2stop.css(->sass)<br>
+		}<br>
+		This is 2 stop left side menu bar<br>
+		actually you set "$sidebar-halfwidth: 0px" in 3stop.sass, then you can get a 2 stop.<br>
+
+	</div>
+</body>
+
+</html>
