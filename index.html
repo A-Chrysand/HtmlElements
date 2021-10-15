@@ -13,6 +13,9 @@
         <nav id="navline">
             <div v-for="(item,i) in containeritem" class="nav_item">
                 <a :href="'#div_'+item.title">{{item.title}}</a><span>&lt;|&gt;</span>
+            </div><br>
+            <div v-for="(item,i) in wrapitem" class="nav_item">
+                <a :href="item.src" target="_blank">{{item.title}}</a><span>&lt;|&gt;</span>
             </div>
         </nav>
         <div id="div_container">
@@ -28,12 +31,16 @@
     var vum = new Vue({
         el: '#div_vueapp',
         data: {
-            navlist: ['pg1', 'pg2', 'pg3', 'pg4', 'pg5',],
             containeritem: [
                 { title: "LeftSideMenu(2stop)", tech: "responsive", src: "./LeftSideMenu/2stop/2stop.html" },
                 { title: "LeftSideMenu(3stop)", tech: "responsive", src: "./LeftSideMenu/3stop/3stop.html" },
                 { title: "repeat get imgs", tech: "", src: "./RepeatGetImgs/rp.html" },
                 { title: "bookmark", tech: "", src: "./bookmark/index.html" }
+            ],
+            wrapitem: [
+                { title: "DWxuanxiu", src: "./site/DWxuanxiuhw/index.html" },
+                { title: "MyBootstrap", src: "./site/Mybootstrap/index.html" },
+                { title: "RespHTML", src: "./site/ResponsiveHTML/index.html" }
             ]
         },
         methods: {
