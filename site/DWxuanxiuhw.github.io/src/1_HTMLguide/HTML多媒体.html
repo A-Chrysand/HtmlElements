@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>HTML多媒体</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../IndexFX/StaticSet.css" />
+	<link rel="stylesheet" href="../IndexFX/text_style.css" />
+	<link rel="stylesheet" href="../1_HTMLguide/table.css" />
+	<style>
+		body {
+			margin-left: 0px;
+			margin-top: -1em;
+			padding: 0px, 0px, 0px, 0px;
+		}
+	</style>
+</head>
+
+<body>
+	<p>音频：</p>
+	<p class="texttab">在HTML5中，内置了音频播放器，可以通过&lt;audio&gt;&lt;/audio&gt;标签来添加音频</p>
+	<ol class="codeli">
+		<li>&lt;audio&gt;</li>
+		<li><span class="sptab">&lt;source src=&quot;./audio/music.mp3&quot; type=&quot;audio/mp3&quot; /&gt;</span>
+		</li>
+		<li><span class="sptab">&lt;source src=&quot;./audio/music.wav&quot; type=&quot;audio/wav&quot; /&gt;</span>
+		</li>
+		<li><span class="sptab">&lt;source src=&quot;./audio/music.ogg&quot; type=&quot;audio/ogg&quot; /&gt;</span>
+		</li>
+		<li><span class="sptab">&lt;embed height=&quot;100 width=&quot;100 src=&quot;song.mp3&quot; /&gt;</span></li>
+		<li>&lt;/audio&gt;</li>
+		<li class="codeinst">HTML5&lt;audio&gt;元素会尝试以mp3、wav或ogg格式来播放音频，如果失败，代码将会回退尝试&lt;embed&gt;元素</li>
+		<li class="codeinst">&lt;embed&gt;元素定义外部内容的容器，能够讲音频嵌入网页中</li>
+	</ol>
+	<p class="texttab">Audioplay还能增加一些属性：</p>
+	<table class="csstable">
+		<tr>
+			<td style="width: 5em; text-align: center;">属性名</td>
+			<td style="width: 15em; text-align: center;">属性含义</td>
+			<td style="text-align: center;">举例</td>
+		</tr>
+		<tr>
+			<td>autoplay</td>
+			<td>自动播放</td>
+			<td>autoplay="autoplay"</td>
+		</tr>
+		<tr>
+			<td>controls</td>
+			<td>播放控件</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>loop</td>
+			<td>循环播放</td>
+			<td>loop="loop"</td>
+		</tr>
+		<tr>
+			<td>muted</td>
+			<td>静音</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>preload</td>
+			<td>预加载播放</td>
+			<td></td>
+		</tr>
+	</table>
+	<p class="texttab">也可以采用外链雅虎播放器：</p>
+	<ol class="codeli">
+		<li>&lt;a href=&quot;./audio/song.mp3&quot;&gt;点击播放&lt;/a&gt;</li>
+		<li>&lt;script type=&quot;text/javascript&quot;
+			src=&quot;http://mediaplayer.yahoo.com/js&quot;&gt;&lt;/script&gt;</li>
+		<li class="codeinst"></li>
+	</ol>
+	<p>视频：</p>
+	<p class="texttab">在HTML5中，同样内置了视频播放器，可以通过&lt;video&gt;&lt;/video&gt;标签来添加视频</p>
+	<ol class="codeli">
+		<li>&lt;video width=&quot;550&quot; controls=&quot;controls&quot;&gt;</li>
+		<li><span class="sptab">&lt;source src=&quot;./video/Sail-Away.mp4&quot; type=&quot;video/mp4&quot; /&gt;</span>
+		</li>
+		<li><span class="sptab">&lt;source src=&quot;./video/Sail-Away.ogv&quot; type=&quot;video/ogv&quot; /&gt;</span>
+		</li>
+		<li><span class="sptab">&lt;source src=&quot;./video/Sail-Away.webm&quot; type=&quot;video/webm&quot;
+				/&gt;</span></li>
+		<li><span class="sptab">&lt;object data=&quot;./video/Sail-Away.mp4&quot; width=&quot;320&quot;
+				height=&quot;240&quot;&gt;</span></li>
+		<li><span class="sptab">&lt;embed src=&quot;./video/Sail-Away.swf&quot; width=&quot;320&quot;
+				height=&quot;240&quot; /&gt;</span></li>
+		<li>&lt;/video&gt;</li>
+		<li class="codeinst">HTML5&lt;audio&gt;元素会尝试以 mp4、ogg 或 webm 格式中的一种来播放视频。如果失败，代码将会回退尝试&lt;embed&gt;元素</li>
+	</ol>
+	<p class="texttab">插入视频的方式：</p>
+	<p class="texttab">1、采用&lt;object&gt;的方式插入：</p>
+	<ul class="codeli">
+		<li>
+			&lt;object data=&quot;视频文件地址&quot;&gt;&lt;/object&gt;</li>
+		<li class="codeinst">&lt;object&gt;是把多媒体文件当作对象来处理，它可以插入几乎所有的多媒体对象。</li>
+	</ul>
+	<p class="texttab">2、采用&lt;embed&gt;的方式插入：</p>
+	<ul class="codeli">
+		<li>&lt;embed src=&quot;视频文件地址&quot;&gt;&lt;/embed&gt;</li>
+		<li class="codeinst">&lt;embed&gt;是以前所广泛应用的插入方式，它可以插入网页、视频、音频，简直为所欲为。但是它是使用Flash作为接口，<strong
+				style="color: red;">抵制中国特供Flash从你我做起！</strong></li>
+	</ul>
+	<p class="texttab">3、采用&lt;iframe&gt;的方式插入：</p>
+	<ul class="codeli">
+		<li>
+			&lt;iframe src=&quot;视频文件地址&quot;&gt;&lt;/iframe&gt;</li>
+		<li class="codeinst">&lt;iframe&gt;是<strong>HTML5</strong>所广泛应用的插入方式，它还可以用来插入网页。</li>
+	</ul>
+	<footer style="height: 30px;"></footer>
+</body>
+
+</html>

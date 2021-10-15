@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.bootcss.com/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<title>Document</title>
+	<script src="../common.js"></script>
+	<link rel="stylesheet" href="./src/css_pg3_main.css">
+</head>
+<style>
+
+</style>
+
+<body>
+	<div class="container-fluid">
+
+		<table id="chatboxtable">
+			<tr>
+				<td id="searchbox" class="left2">
+					<div>
+						<img style="width: 30px;" src="../../image/icon/usericon.jpg">
+						<span>Lv 100 神仙</span>
+						<div class="dropdown" style="float: right;">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<span style="font-size: 25px;margin-top: 1px;" class="glyphicon glyphicon-th-list"
+									aria-hidden="true"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="#">发起新群聊&nbsp;<span class="glyphicon glyphicon-plus"
+											aria-hidden="true"></span></a></li>
+								<li><a href="#">搜索&nbsp;<span class="glyphicon glyphicon-search"
+											aria-hidden="true"></span></a></li>
+								<li><a href="#">设置&nbsp;<span class="glyphicon glyphicon-cog"
+											aria-hidden="true"></span></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</td>
+				<td id="titlebox" colspan="2" style="padding: 10px;font-size: 1.5em;font-weight: bold;">外行人科技集团(34)</td>
+
+			</tr>
+			<tr>
+				<td id="lianxirenbox" class="left2" rowspan="3">
+					<div>
+						<ul style="list-style: none;" id="lianxirenul">
+							<li class="lianxirenli">
+								<div><img width="30px" src="../../image/icon/fupo.jpg">老板</div>
+							</li>
+							<li class="lianxirenli">
+								<div><img width="30px" src="../../image/icon/fupo.jpg">服务员小红</div>
+							</li>
+							<li class="lianxirenli">
+								<div><img width="30px" src="../../image/icon/fupo.jpg">小王</div>
+							</li>
+							<li class="lianxirenli">
+								<div><img width="30px" src="../../image/icon/fupo.jpg">客户老张</div>
+							</li>
+							<li class="lianxirenli">
+								<div><img width="30px" src="../../image/icon/fupo.jpg">客户李大妈</div>
+							</li>
+							<li class="lianxirenli">
+								<div><img width="30px" src="../../image/icon/fupo.jpg">裁缝老黄</div>
+							</li>
+							<li class="lianxirenli">
+								<div><img width="30px" src="../../image/icon/fupo.jpg">二手商老图</div>
+							</li>
+						</ul>
+					</div>
+				</td>
+				<td id="chatbox" class="right2" rowspan="2">
+					<iframe src="./pg3_chat_liaotiankuang.html" frameborder="none" width="100%" height="320px"></iframe>
+				</td>
+				<td id="infobox" class="right1">
+					<div>
+						<h4 style="text-align: center;">公告：</h4>
+						<p style="text-indent: 2em;">入群找群主领超级大红包，大概$5000000吧。</p>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td id="groupbox" class="right1" rowspan="2">
+					<div>
+						<ul style="list-style: none;" id="lianxirenul">
+							<li class="lianxirenli">
+								<div><img width="30px" src="../../image/icon/fupo.jpg">群主-老板</div>
+							</li>
+							<li class="lianxirenli">
+								<div><img width="30px" src="../../image/icon/fupo.jpg">管理员-小红</div>
+							</li>
+							<li class="lianxirenli">
+								<div><img width="30px" src="../../image/icon/fupo.jpg">老张</div>
+							</li>
+							<li class="lianxirenli">
+								<div><img width="30px" src="../../image/icon/fupo.jpg">老婆</div>
+							</li>
+							<li class="lianxirenli">
+								<div><img width="30px" src="../../image/icon/fupo.jpg">小李</div>
+							</li>
+						</ul>
+					</div>
+
+
+				</td>
+			</tr>
+			<tr>
+				<td id="inputbox" class="right2" contentEditable="true">输入框
+					<button class="btn btn-info" style="position: absolute; right: 180px; top:460px">发送</button>
+				</td>
+			</tr>
+		</table>
+	</div>
+</body>
+<script>
+	window.onload = function () {
+		GBFheight(0, "pg1_main", 600);
+		GBFheight(0, "centerpagearea", 900);
+	}
+</script>
+
+</html>

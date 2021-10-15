@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.bootcss.com/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<title>Document</title>
+	<script src="../common.js"></script>
+	<link rel="stylesheet" href="./src/css_pg2_main.css">
+</head>
+
+<body>
+	<div id="navdiv">
+		<div id="horzionalnav">
+			<ul>
+				<li>
+					<div class="Guide_front Liactive">学习网站</div>
+					<div class="Guide_back">网上自有黄金屋</div>
+				</li>
+				<li>
+					<div class="Guide_front">工具</div>
+					<div class="Guide_back">欲善其事先利其器</div>
+				</li>
+				<li>
+					<div class="Guide_front">好书推荐</div>
+					<div class="Guide_back">书中自有钻石屋</div>
+				</li>
+
+			</ul>
+		</div>
+		<div id="pg1_main_iframebox">
+			<iframe id="pg2iframe" class="embed-responsive-item iframepage" scrolling="no"
+				src="./pg2-1_collection.html"></iframe>
+		</div>
+	</div>
+</body>
+<script>
+	window.onload = function () {
+		GBFheight(0, "pg1_main");
+		GBFheight(0, "centerpagearea");
+	}
+
+	var hei = parent.document.documentElement.clientHeight;
+	$("#horzionalnav li").eq(0).click(function () {
+		switchfn("#horzionalnav li .Guide_front", 0, "Liactive");
+		$("#pg1_main_iframebox iframe").attr("src", "./pg2-1_collection.html");
+		GBFheight(0, "pg1_main");
+		GBFheight(0, "centerpagearea");
+
+	})
+	$("#horzionalnav li").eq(1).click(function () {
+		switchfn("#horzionalnav li .Guide_front", 1, "Liactive");
+		$("#pg1_main_iframebox iframe").attr("src", "./pg2-2_tool.html");
+		GBFheight(50, "pg1_main", 800);
+		GBFheight(150, "centerpagearea", 800);
+	})
+	$("#horzionalnav li").eq(2).click(function () {
+		switchfn("#horzionalnav li .Guide_front", 2, "Liactive");
+		$("#pg1_main_iframebox iframe").attr("src", "./pg2-3_goodbooks.html");
+		GBFheight(150, "pg1_main", 3310);
+		GBFheight(150, "centerpagearea", 3310);
+	})
+
+	function switchfn(target, num, classname) {
+		$(target + ":not(:eq(" + num + "))").removeClass(classname);
+		$(target + ":eq(" + num + ")").addClass(classname);
+	}
+</script>
+
+</html>

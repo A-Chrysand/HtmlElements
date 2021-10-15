@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.bootcss.com/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<title>pg1-2</title>
+	<script src="../common.js"></script>
+	<link rel="stylesheet" href="../common.css">
+</head>
+<style>
+	body {
+		--tablewidth: 720px;
+	}
+
+	#AccountTable {
+		margin: 0 auto;
+
+	}
+
+	#AccountTableInfo {
+		border: rgb(29, 109, 69) 1px solid;
+		overflow: hidden;
+	}
+
+	#pictures {
+		position: relative;
+		width: var(--tablewidth);
+	}
+
+	#pictures table .imginstru td {
+		text-align: center;
+		font-size: 1.5em;
+		font-weight: bold;
+	}
+
+	.imginstru {
+		height: 3em;
+	}
+
+	img {
+		width: 200px;
+		border: red 1px dotted;
+		margin: 0px 20px;
+	}
+</style>
+
+<body>
+	<div id="box" class="container">
+		<table id="AccountTable">
+			<tr>
+				<td>
+					<h1 class="tabletitle_space_class" style="font-weight: bolder; text-align: center;">恰饭指南</h1>
+					<p class="mingyan">人是铁饭是钢，一顿不吃饿得■</p>
+					<p class="mingyan" style="font-size: 0.5em;">hxd，今天你要多吃点</p>
+				</td>
+			</tr>
+			<tr>
+				<td id="AccountTableInfo">
+					<div id="pictures">
+						<table>
+							<tr class="imgline">
+								<td class="imgtd"><img src="../../image/lunch/4.jpg"></td>
+								<td class="imgtd"><img src="../../image/lunch/2cake.jpg"></td>
+								<td class="imgtd"><img src="../../image/lunch/3.jpg"></td>
+								<td class="imgtd"><img src="../../image/lunch/1baimifan.jpg"></td>
+								<td class="imgtd"><img src="../../image/lunch/5.jpg"></td>
+								<td class="imgtd"><img src="../../image/lunch/6.jpg"></td>
+							</tr>
+							<tr class="imginstru">
+								<td>寿司</td>
+								<td>蛋糕</td>
+								<td>面条</td>
+								<td>白米饭</td>
+								<td>丸子</td>
+								<td>粤式早茶</td>
+
+							</tr>
+							<tr class="imgline">
+								<td class="imgtd"><img src="../../image/lunch/7.jpg"></td>
+								<td class="imgtd"><img src="../../image/lunch/8.jpg"></td>
+								<td class="imgtd"><img src="../../image/lunch/9.jpg"></td>
+								<td class="imgtd"><img src="../../image/lunch/10.jpg"></td>
+								<td class="imgtd"><img src="../../image/lunch/11.jpg"></td>
+								<td class="imgtd"><img src="../../image/lunch/12.jpg"></td>
+							</tr>
+							<tr class="imginstru">
+								<td>春卷</td>
+								<td>炸条</td>
+								<td>烤鱼</td>
+								<td>炸鸡</td>
+								<td>辣椒鸡</td>
+								<td>烤鸡</td>
+							</tr>
+						</table>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<div id="buttongroup" style="width: 95px;margin: 10px auto;">
+			<button onclick="changetologin()" class="btn btn-warning btn-lg">1</button>
+			<button onclick="changetoregister()" class="btn btn-warning btn-lg">2</button>
+		</div>
+	</div>
+</body>
+
+<script>
+	var animatetime = 300;
+	var animatecounter = 0;
+	var wid = $("#pictures").css("width");
+	function changetologin() {
+		if (animatecounter) {
+			$("#pictures").animate({ left: '+=' + wid }, animatetime);
+			animatecounter++;
+		}
+	}
+
+	function changetoregister() {
+		if (!animatecounter) {
+			$("#pictures").animate({ left: '-=' + wid }, animatetime);
+			animatecounter--;
+		}
+	}
+	window.onload = function () {
+		//$('#centerpagearea', parent.document).css("height",$("body").css("height")); 
+	}
+</script>
+
+</html>

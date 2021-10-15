@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<title>HTMLnavguide</title>
+<link rel="stylesheet" href="../IndexFX/StaticSet.css" />
+
+<style>
+	#htmlnav {
+		display: flex;
+		height: 175px;
+	}
+
+	ul {
+		border-bottom: none;
+		list-style: none;
+		margin: 0px;
+		padding: 0px;
+		cursor: pointer;
+	}
+
+	li {
+		width: 200px;
+		height: 35px;
+		line-height: 35px;
+		border-bottom: none;
+		padding-left: 20px;
+		background-color: rgb(153, 180, 255);
+		cursor: pointer;
+	}
+
+	#sidebar {
+		display: flex;
+		margin: 0px;
+		width: 210px;
+		height: auto;
+		word-wrap: break-word;
+		word-break: break-all;
+		overflow: hidden;
+		padding: 5px;
+		height: 500px;
+	}
+
+	li:nth-of-type(2n) {
+		background-color: rgb(113, 208, 252);
+	}
+
+	li:hover {
+		background-color: coral;
+	}
+
+
+	.html_hiddenone {
+		display: none;
+	}
+
+	#htmlrightpages {
+		width: 100%;
+		margin-left: 20px;
+	}
+
+	#roateingword {
+		padding: 0px 20px 10px 20px;
+	}
+
+	iframe {
+		height: 1150px;
+	}
+</style>
+<script type="text/javascript">
+	window.onload = function () {
+		var mytab = document.getElementById("htmlnav");
+		var myul = mytab.getElementsByTagName("ul")[0];
+		var myli = myul.getElementsByTagName("li");
+		var mydiv = mytab.getElementsByTagName("iframe");
+		var tgn;
+		for (i = 0, len = myli.length; i < len; i++) {
+
+			myli[i].index = i;
+			myli[i].onclick = function () {
+				tgn = i;
+				for (var n = 0; n < len; n++) {
+					myli[n].className = "html_showone";
+					mydiv[n].className = "html_hiddenone";
+
+				}
+				this.className = "html_nav_li";
+				mydiv[this.index].className = "";
+			}
+		}
+	}
+</script>
+</head>
+
+<body>
+	<div id="roateingword">
+		<marquee scrollamount="10"><span
+				style="font-weight: bolder;font-size: 30px;color: rgb(0,167,228);">本网页采用半响应式开发，简单介绍了HTML的部分代码知识，虽然还有很多不足和BUG，但请各位观众姥爷欣赏</span>
+		</marquee>
+	</div>
+	<div id="htmlnav">
+		<ul>
+			<li class="html_nav_li">HTML简介</li>
+			<li>HTML文本</li>
+			<li>HTML链接</li>
+			<li>HTML多媒体</li>
+			<li>HTML表单类标签</li>
+
+		</ul>
+		<div id="htmlrightpages">
+			<iframe class="html_showone" id="htmljianjie" src="HTML简介.html"></iframe>
+			<iframe class="html_hiddenone" id="htmlwenben" src="HTML文本.html"></iframe>
+			<iframe class="html_hiddenone" id="htmllink" src="HTML链接.html"></iframe>
+			<iframe class="html_hiddenone" id="htmlduomeiti" src="HTML多媒体.html"></iframe>
+			<iframe class="html_hiddenone" id="htmlbiaodanlei" src="HTML表单类.html"></iframe>
+		</div>
+	</div>
+	<div id="sidebar">
+		<p>这是一个div，宽度210px，内边距5px<br>介绍不能为空<br>介绍字符控制在40-10000个之间<br>介绍字符控制在40-10000个之间<br>介绍字符控制在40-10000个之间<br>介绍字符控制在40-10000个之间<br>介绍字符控制在40-10000个之间<br>介绍字符控制在40-10000个之间。</p>
+	</div>
+</body>
+
+</html>

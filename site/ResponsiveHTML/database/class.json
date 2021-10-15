@@ -1,0 +1,192 @@
+{
+	"wanggong1901": [
+		{
+			"xingqi": 1,
+			"jieci": 1,
+			"kemu": "数字逻辑",
+			"teacher": "AAA",
+			"location": "公共楼208",
+			"xuefen": 2
+		},
+		{
+			"xingqi": 1,
+			"jieci": 4,
+			"kemu": "线性代数",
+			"teacher": "AAA",
+			"location": "公共楼201",
+			"xuefen": 2.5
+		},
+		{
+			"xingqi": 1,
+			"jieci": 5,
+			"kemu": "索尼",
+			"teacher": "Sony",
+			"location": "公共楼666",
+			"xuefen": 6
+		},
+		{
+			"xingqi": 2,
+			"jieci": 1,
+			"kemu": "Web设计基础",
+			"teacher": "AAA",
+			"location": "公共楼307",
+			"xuefen": 2
+		},
+		{
+			"xingqi": 3,
+			"jieci": 1,
+			"kemu": "数据通信",
+			"teacher": "AAA",
+			"location": "公共楼310",
+			"xuefen": 2
+		},
+		{
+			"xingqi": 4,
+			"jieci": 4,
+			"kemu": "大学物理A2",
+			"teacher": "BBB",
+			"location": "公共楼215",
+			"xuefen": 2
+		},
+		{
+			"xingqi": 5,
+			"jieci": 2,
+			"kemu": "体育",
+			"teacher": "猎天使魔男",
+			"location": "体育场",
+			"xuefen": 2
+		},
+		{
+			"xingqi": 5,
+			"jieci": 5,
+			"kemu": "数据通信",
+			"teacher": "AAA",
+			"location": "计通楼512",
+			"xuefen": 2
+		}
+	],
+	"ruangong1901": [
+		{
+			"xingqi": 1,
+			"jieci": 2,
+			"kemu": "数字逻辑",
+			"teacher": "AAA",
+			"location": "公共楼208",
+			"xuefen": 2
+		},
+		{
+			"xingqi": 1,
+			"jieci": 5,
+			"kemu": "线性代数",
+			"teacher": "AAA",
+			"location": "公共楼201",
+			"xuefen": 2.5
+		},
+		{
+			"xingqi": 2,
+			"jieci": 1,
+			"kemu": "Web设计基础",
+			"teacher": "AAA",
+			"location": "公共楼315",
+			"xuefen": 2
+		},
+		{
+			"xingqi": 2,
+			"jieci": 2,
+			"kemu": "大学物理实验",
+			"teacher": "AAA",
+			"location": "公共楼306",
+			"xuefen": 2
+		},
+		{
+			"xingqi": 3,
+			"jieci": 1,
+			"kemu": "C++程序设计",
+			"teacher": "RRR",
+			"location": "公共楼313",
+			"xuefen": 2
+		},
+		{
+			"xingqi": 4,
+			"jieci": 3,
+			"kemu": "大学物理A2",
+			"teacher": "BBB",
+			"location": "公共楼235",
+			"xuefen": 2
+		}
+	],
+	"jike1901": [
+		{
+			"xingqi": 1,
+			"jieci": 1,
+			"kemu": "宇宙机",
+			"teacher": "YYY",
+			"location": "公共楼108",
+			"xuefen": 2
+		},
+		{
+			"xingqi": 1,
+			"jieci": 2,
+			"kemu": "数字逻辑",
+			"teacher": "AAA",
+			"location": "公共楼202",
+			"xuefen": 2
+		},
+		{
+			"xingqi": 1,
+			"jieci": 3,
+			"kemu": "单片机",
+			"teacher": "DDD",
+			"location": "公共楼218",
+			"xuefen": 2
+		},
+		{
+			"xingqi": 1,
+			"jieci": 4,
+			"kemu": "线性代数",
+			"teacher": "AAA",
+			"location": "公共楼201",
+			"xuefen": 2.5
+		},
+		{
+			"xingqi": 2,
+			"jieci": 1,
+			"kemu": "Web设计复杂",
+			"teacher": "WWW",
+			"location": "公共楼315",
+			"xuefen": 2
+		},
+		{
+			"xingqi": 2,
+			"jieci": 2,
+			"kemu": "大学物理",
+			"teacher": "AAA",
+			"location": "公共楼406",
+			"xuefen": 2
+		},
+		{
+			"xingqi": 3,
+			"jieci": 1,
+			"kemu": "C++程序设计",
+			"teacher": "RRR",
+			"location": "公共楼313",
+			"xuefen": 2
+		},
+		{
+			"xingqi": 4,
+			"jieci": 3,
+			"kemu": "大学物理A2",
+			"teacher": "BBB",
+			"location": "公共楼235",
+			"xuefen": 2
+		},
+		{
+			"xingqi": 5,
+			"jieci": 2,
+			"kemu": "汇编原理",
+			"teacher": "GHH",
+			"location": "计通楼666",
+			"xuefen": 2
+		}
+	]
+}

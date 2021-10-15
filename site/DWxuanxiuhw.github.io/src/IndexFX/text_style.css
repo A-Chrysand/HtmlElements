@@ -1,0 +1,55 @@
+body {
+	--text_textsize: 16px;
+	--text_codesize: 9px;
+	--codeli_maxwidth:800px;
+}
+
+.texttab {
+	text-indent: 2em;
+
+}
+.texttab2 {
+	text-indent: 4em;
+
+}
+.texttab3 {
+	text-indent: 6em;
+
+}
+.texttab4 {
+	text-indent: 8em;
+
+}
+
+.sptab {
+	display: inline-block;
+	text-indent: 2em;
+}
+
+.codeli,.codelit {
+	margin-left: calc(2*var(--text_textsize));
+	padding-left: 2em;
+	line-height: var(--text_textsize);
+	background-color: rgb(200, 200, 200);
+	font-size: var(--text_codesize);
+	font-family: "Conslas";
+}
+.codeli{
+	max-width: var(--codeli_maxwidth);
+}
+.codelit{
+
+
+	margin-left: calc(4*var(--text_textsize));
+	max-width: calc(var(--codeli_maxwidth) - 2*var(--text_textsize));
+}
+
+
+.codeli li {
+	text-indent: var(--text_textsize);
+}
+
+.codeinst {
+	list-style: none;
+	color: rgb(50, 150, 50);
+}

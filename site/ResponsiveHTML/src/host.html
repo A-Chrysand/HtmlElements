@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.bootcss.com/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<title>Document</title>
+	<script src="./common.js"></script>
+	<link rel="stylesheet" href="./host.css" />
+	<link rel="stylesheet" href="./common.css">
+</head>
+
+<body>
+	<nav class="navbar navbar-default" role="navigation">
+		<!--响应式移动端部分-->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#horzionalmenu">
+				<span class="sr-only">展开导航</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<div style="height: 50px; overflow-y: hidden;">
+				<img id="titlepic" style="margin-top: -1.5em;" src="../image/icon/titlepic.png">
+				<span class="titlecharclass" style="font-size: 40px;line-height: 49px;letter-spacing: 3px;">ABCD</span>
+				<span class="hidden-xs"
+					style="font-size: 20px;line-height: 49px;text-align: center;">&nbsp;&nbsp;学生学习休闲bar&nbsp;&nbsp;</span>
+			</div>
+		</div>
+		<!--响应式桌面端部分-->
+		<div class="collapse navbar-collapse" id="horzionalmenu">
+			<ul class="nav navbar-nav" id="navul">
+				<li class="active" style="cursor: pointer;"><a>主页</a></li>
+				<li style="cursor: pointer;"><a>学习</a></li>
+				<li style="cursor: pointer;"><a>聊天</a></li>
+				<li style="cursor: pointer;"><a>新闻</a></li>
+				<li style="cursor: pointer;"><a target="_blank" href="./PG5-Usercenter/pg5_main.html">用户中心</a></li>
+				<li>
+					<div id="musicplayerdiv">
+						<iframe frameborder="no" width=200px height=40px
+							src="//music.163.com/outchain/player?type=2&id=1383811881&auto=0&height=32"
+							style="margin-top: -9px; "></iframe>
+					</div>
+				</li>
+			</ul>
+			<div id="RightUser">
+				<div class="RightUserItem">
+					<a style="text-decoration: none;" href="./account/account.html" scrolling="no">【退出】</a>
+				</div>
+				<div class="RightUserItem">
+					<span id="Username">NULL</span>
+				</div>
+				<div class="RightUserItem">
+					<img id="usericon" class="img-circle" src="../image/icon/usericon.jpg">
+				</div>
+			</div>
+		</div>
+	</nav>
+	<!--////////////////////////////////////////////////////////////////////-->
+	<div class="container">
+		<div id="verticalmenu" class="collapse navbar-collapse">
+			<ul class="nav" id="verticalmenu_ul">
+				<li class="active"><img class="naviconpic" src="../image/icon/1mainpage_house.png"></li>
+				<li><img class="naviconpic" src="../image/icon/2study_pencil.png"></li>
+				<li><img class="naviconpic" src="../image/icon/3chat_bubble.png"></li>
+				<li><img class="naviconpic" src="../image/icon/4news_tv.png"></li>
+			</ul>
+		</div>
+		<div id="centerpagearea">
+			<iframe class="embed-responsive-item iframepage" id="pg1_main" scrolling="no"
+				src="./PG1-Zhuye/pg1_main.html"></iframe>
+		</div>
+	</div>
+
+	<footer id="host_footer">
+		<img style="margin-top: -209px; margin-left: 87%;" src="../image/img/decoration/tree1.png">
+		<img style="margin-top: -208px; margin-left: 1%;" src="../image/img/decoration/tree2.png">
+		<div style="display: inline;; width: 100%;height: 1em;"><a style="color: red;" target="_blank"
+				href="https://a-chrysand.github.io/ResponsiveHTML/src/account/account.html">预览网页</a><span>&nbsp;&nbsp;&nbsp;</span><a
+				style="color: red;" target="_blank" href="https://github.com/A-Chrysand/ResponsiveHTML">源代码</a></div>
+	</footer>
+</body>
+
+<script>
+	var currentuser = JSON.parse(sessionStorage.getItem("file_currentuser"));
+	if (currentuser == null) {
+		alert("请先登录");
+	}
+	$(".RightUserItem #Username").html("Hi," + currentuser.name);
+
+	$(".naviconpic").eq(0).click(function () {
+		$("#pg1_main").attr("src", "./PG1-Zhuye/pg1_main.html");
+		switchfn("#navul li", 0, "active");
+		switchfn("#verticalmenu_ul li", 0, "active");
+	});
+	$("#navul li").eq(0).click(function () {
+		$("#pg1_main").attr("src", "./PG1-Zhuye/pg1_main.html");
+		switchfn("#navul li", 0, "active");
+		switchfn("#verticalmenu_ul li", 0, "active");
+	});
+
+	$(".naviconpic").eq(1).click(function () {
+		$("#pg1_main").attr("src", "./PG2-Study/pg2_main.html");
+		switchfn("#navul li", 1, "active");
+		switchfn("#verticalmenu_ul li", 1, "active");
+		GBFheight(0, "pg1_main");
+	});
+	$("#navul li").eq(1).click(function () {
+		$("#pg1_main").attr("src", "./PG2-Study/pg2_main.html");
+		switchfn("#navul li", 1, "active");
+		switchfn("#verticalmenu_ul li", 1, "active");
+		GBFheight(0, "pg1_main");
+	});
+
+	$(".naviconpic").eq(2).click(function () {
+		$("#pg1_main").attr("src", "./PG3-Chat/pg3_main.html");
+		switchfn("#navul li", 2, "active");
+		switchfn("#verticalmenu_ul li", 2, "active");
+		GBFheight(0, "pg1_main");
+	});
+	$("#navul li").eq(2).click(function () {
+		$("#pg1_main").attr("src", "./PG3-Chat/pg3_main.html");
+		switchfn("#navul li", 2, "active");
+		switchfn("#verticalmenu_ul li", 2, "active");
+		GBFheight(0, "pg1_main");
+	});
+
+	$(".naviconpic").eq(3).click(function () {
+		$("#pg1_main").attr("src", "./PG4-News/pg4_main.html");
+		switchfn("#navul li", 3, "active");
+		switchfn("#verticalmenu_ul li", 3, "active");
+		GBFheight(0, "pg1_main");
+	});
+	$("#navul li").eq(3).click(function () {
+		$("#pg1_main").attr("src", "./PG4-News/pg4_main.html");
+		switchfn("#navul li", 3, "active");
+		switchfn("#verticalmenu_ul li", 3, "active");
+		GBFheight(0, "pg1_main");
+	});
+
+	function switchfn(target, num, classname) {
+		$(target + ":not(:eq(" + num + "))").removeClass(classname);
+		$(target + ":eq(" + num + ")").addClass(classname);
+	}
+</script>
+
+</html>

@@ -1,0 +1,31 @@
+table {
+	width: 100%;
+}
+
+td {
+	border: rgb(50, 100, 50) 2px solid;
+}
+
+.newsimg {
+	width: 200px;
+	height: 130px;
+}
+
+.newsimg img {
+	width: 199px;
+}
+
+.newsdescription {
+	vertical-align: top;
+	font-size: 1.5em;
+	height: 130px;
+}
+
+.newsdescription a{
+	text-decoration: none;
+	color: black;
+}
+
+.newsdescription a:hover{
+	color: rgb(0, 119, 255);
+}

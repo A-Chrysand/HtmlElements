@@ -1,0 +1,93 @@
+body {
+	/*background: url("../image/bg/top.jpg")top no-repeat;*/
+	background: rgba(0, 0, 0, 0.05) top no-repeat;
+	overflow-x: hidden;
+}
+
+.navbar-default {
+	height: 50px;
+	background-color: rgb(129, 216, 250);
+}
+
+#musicplayerdiv {
+	margin-top: 9px;
+}
+
+#titlepic {
+	--titlepicheight: 50px;
+	border-radius: 10px;
+	border: red 1px dotted;
+	margin-top: calc((var(--TopHorzionalBarHeight) - var(--titlepicheight)) / 2);
+	height: var(--titlepicheight);
+}
+
+.RightUserItem {
+	display: block;
+	float: right;
+	line-height: 50px;
+	font-size: 18px;
+	padding: 0 5px;
+}
+
+#usericon {
+	height: 30px;
+	border: red 1px dotted;
+}
+
+#verticalmenu {
+	top: 20%;
+	position: fixed;
+	margin-left: -45px;
+	padding: 0px;
+	width: 75px;
+}
+
+#verticalmenu_ul li {
+	--height: 75px;
+	border: rgba(113, 187, 248, 0.8) 1px solid;
+	padding: 10px 10px;
+	height: var(--height);
+	text-align: center;
+	line-height: calc(var(--height) - 20px);
+	cursor: pointer;
+}
+
+#verticalmenu_ul li:hover {
+	border: orange 2px solid;
+}
+
+#verticalmenu_ul .active {
+	border: rgb(255, 100, 165) 2px solid;
+}
+
+.naviconpic {
+	width: 55px;
+}
+
+#centerpagearea {
+	width: 100%;
+	height: 100px;
+	padding: 0 100px;
+}
+
+.iframepage {
+	/*border: red 2px dotted;*/
+	border: rgba(0, 0, 0, 0.03) 2px solid;
+	border-radius: 15px;
+	width: 100%;
+}
+
+#host_footer {
+	float: bottom;
+	width: 100%;
+	height: 50px;
+	z-index: -1;
+	background: url("../image/bg/grass_side.png") bottom repeat-x;
+}
+
+.row {
+	width: 100%;
+	display: inline;
+	position: fixed;
+	bottom: 0px;
+}

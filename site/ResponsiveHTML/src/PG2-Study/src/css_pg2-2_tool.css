@@ -1,0 +1,72 @@
+.container {
+	border: springgreen 2px solid;
+}
+
+#verticalmenu_ul li {
+	--height: 60px;
+	width: calc(2.5 * var(--height));
+	height: var(--height);
+	text-align: center;
+	line-height: var(--height);
+	border: steelblue 1px solid;
+	background-color: rgba(74, 157, 253, 0.5);
+	cursor: pointer;
+}
+
+#verticalmenu_ul li:hover {
+	background-color: coral;
+}
+
+#verticalmenu_ul li div {
+	margin: 1em auto;
+	text-align: center;
+}
+
+#toolbox {
+	overflow: hidden;
+	height: 701px;
+	flex: 1;
+}
+
+#toolboxswitch {
+	position: relative;
+	margin: 0 auto 0 10px;
+	height: 2700px;
+}
+
+.iframeboxs {
+	overflow: hidden;
+	height: 700px;
+	width: 100%;
+}
+
+iframe {
+	width: 100%;
+	border: skyblue 2px solid;
+}
+
+#weblisttable {
+	width: 600px;
+}
+
+#weblisttable td {
+	padding: 10px;
+	border: steelblue 1px solid;
+}
+
+#weblisttable .webtitle {
+	font-weight: bold;
+	font-size: 1.25em;
+	height: 2em;
+	width: 300px;
+}
+
+#weblisttable .gonow {
+	text-align: center;
+	width: 100px;
+}
+
+.discription {
+	line-height: 1em;
+	text-indent: 2em;
+}

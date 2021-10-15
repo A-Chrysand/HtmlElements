@@ -1,0 +1,59 @@
+{
+	"homework1": [
+		{
+			"month": 12,
+			"day": 28,
+			"hour": 14,
+			"minute": 30,
+			"subject": "计算机网络",
+			"title": "书本习题",
+			"place": "\\",
+			"strlong": "",
+			"lasttime": ""
+		},
+		{
+			"month": 12,
+			"day": 29,
+			"hour": 14,
+			"minute": 30,
+			"subject": "大学物理",
+			"title": "练习册习题",
+			"place": "\\",
+			"strlong": "",
+			"lasttime": ""
+		},
+		{
+			"month": 12,
+			"day": 31,
+			"hour": 14,
+			"minute": 30,
+			"subject": "Educoder",
+			"title": "实训项目",
+			"place": "\\",
+			"strlong": "",
+			"lasttime": ""
+		},
+		{
+			"month": 12,
+			"day": 31,
+			"hour": 14,
+			"minute": 30,
+			"subject": "数字逻辑基础",
+			"title": "单元测试",
+			"place": "\\",
+			"strlong": "",
+			"lasttime": ""
+		},
+		{
+			"month": 1,
+			"day": 2,
+			"hour": 14,
+			"minute": 30,
+			"subject": "马克思主义原理",
+			"title": "题库",
+			"place": "\\",
+			"strlong": "",
+			"lasttime": ""
+		}
+	]
+}

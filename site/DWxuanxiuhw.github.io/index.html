@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>rnohw</title>
+
+</head>
+<script>
+	function ck() {
+		var cstr = "123123";
+		var cpsw = "1231234";
+		var str = document.getElementById("anhao").value;
+		var psw = document.getElementById("psw").value;
+		if (str == cstr && psw == cpsw) {
+			window.location.href = "/src/0_Head/horzionalnav.html"
+		}
+		else if (str != cstr && psw == cpsw) {
+			alert("暗号输入错误");
+		}
+		else if (str == cstr && psw != cpsw) {
+			alert("密码输入错误");
+		}
+		else if (str == "" && psw != "") {
+			alert("暗号不能留空");
+		}
+		else if (str != "" && psw == "") {
+			alert("密码不能留空");
+		}
+		else if (str != cstr && psw != cpsw && str != "" && psw != "") {
+			alert("暗号密码都输入错误？？\n有内鬼，终止交易！");
+		}
+		else{
+			alert("总得填一个吧？");
+		}
+	}
+</script>
+<style>
+	body {
+		max-height: 500px;
+	}
+
+	#mained {
+		display: flex;
+		margin-top: 200px;
+		width: 500px;
+		margin-left: auto;
+		margin-right: auto;
+		line-height: 30px;
+		height: 200px;
+		border: 2px solid red;
+	}
+
+	#tijiao {
+		margin-top: 10px;
+		margin-left: 50px;
+		width: 80px;
+	}
+
+	#inner {
+		margin-top: 50px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	#rb {
+		position: absolute;
+		display: block;
+		margin-top: 130px;
+		margin-left: 380px;
+	}
+</style>
+
+<body>
+	<div id="mained">
+		<div id="inner">
+			<input id="anhao" type="text" placeholder="请输入暗号以浏览作业" />
+			<br>
+			<input id="psw" type="password" placeholder="密码" />
+			<br>
+			<button id="tijiao" onclick="ck()">提交</button>
+			<p style="text-align:center;margin:0px;">点击提交进入交易</p>
+
+		</div>
+		<div id="rb">
+			<img src="./jpg/lg.jpg">
+		</div>
+	</div>
+</body>
+
+</html>

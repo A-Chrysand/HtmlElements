@@ -1,0 +1,29 @@
+@font-face {
+	font-family: "titlechar";
+	src: url("../image/titlechar.woff") format("woff");
+}
+
+.titlecharclass {
+	font-family: 'titlechar';
+}
+
+@font-face {
+	font-family: "tabletitle";
+	src: url("../image/tabletitle.woff") format("woff");
+}
+
+.tabletitleclass {
+	font-family: 'tabletitle';
+}
+
+.tabletitle_space_class {
+	font-weight: bolder;
+	font-family: 'tabletitle';
+	letter-spacing: 3px;
+}
+
+.mingyan {
+	font-size: 1.5em;
+	font-family: "楷体";
+	color: red;
+}

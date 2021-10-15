@@ -1,0 +1,28 @@
+.csstable {
+    margin-left: 2em;
+    border-width: 1px;
+    border-style: solid;
+    border-color: darkblue;
+    border-collapse: collapse;
+    max-width: calc(800px + 16px);
+    width: 100%;
+}
+
+.csstable td {
+    border-width: 1px;
+    border-style: solid;
+    border-color: darkblue;
+    border-collapse: collapse;
+}
+
+ul {
+    list-style: none;
+}
+
+body{
+    padding-left: 20px;
+    padding-right: 20px;
+    background-image: linear-gradient(rgba(0,0,0,0.07),rgba(0,0,0,0));
+    background-repeat: no-repeat;
+
+}

@@ -1,0 +1,121 @@
+{
+	"user1": [
+		{
+			"clttitle": [
+				"菜鸟教程",
+				"中国大学MOOC",
+				"doyoudo",
+				"Bootstrap中文手册",
+				"CSDN",
+				"GitHub",
+				"W3school",
+				"Educoder",
+				"优优教程网",
+				"蓝铅笔",
+				"网易云课堂",
+				"巧匠课堂",
+				"简书",
+				"高高手",
+				"PPT教程网",
+				"慕课网",
+				"可汗学院",
+				"TED",
+				"网易公开课",
+				"好知网",
+				"泸江",
+				"Word联盟",
+				"学UI网"
+			],
+			"cltsite": [
+				"http://www.runoob.com/",
+				"https://www.icourse163.org/",
+				"http://www.doyoudo.com/",
+				"https://v3.bootcss.com/",
+				"https://www.csdn.net/",
+				"https://github.com/",
+				"https://www.w3school.com.cn/",
+				"https://www.educoder.net/",
+				"https://uiiiuiii.com/",
+				"https://www.lanqb.com/",
+				"https://study.163.com/",
+				"https://www.qiaojiang.tv/",
+				"https://www.jianshu.com/",
+				"https://www.gogoup.com/",
+				"http://www.pptfans.cn/",
+				"https://www.imooc.com/",
+				"https://zh.khanacademy.org/",
+				"https://www.ted.com",
+				"https://open.163.com/",
+				"http://www.howzhi.com/",
+				"https://www.hujiang.com/",
+				"http://www.wordlm.com/",
+				"http://www.xueui.cn/"
+			],
+			"discription": [
+				"前端开发学习网站",
+				"课程学习网站",
+				"各种技术学习网站",
+				"HTML开发学习网站",
+				"专业开发者社区",
+				"世界最大代码库",
+				"学习网站",
+				"代码学习测试网站",
+				"免费自学网站",
+				"年轻人的线上绘画设计学习平台",
+				"我的职业课堂",
+				"学设计上巧匠",
+				"创作网站",
+				"艺术设计网站",
+				"PPT教程网",
+				"读书的",
+				"读书的",
+				"科技网站",
+				"网易公开课",
+				"重拾学习乐趣",
+				"语言学习",
+				"厉害了word哥",
+				"学UI的"
+			]
+		}
+	],
+	"user2": [
+		{
+			"clttitle": [
+				"菜鸟教程",
+				"中国大学MOOC",
+				"doyoudo",
+				"Bootstrap中文手册",
+				"CSDN"
+			],
+			"cltsite": [
+				"http://www.runoob.com/",
+				"https://www.icourse163.org/",
+				"http://www.doyoudo.com/",
+				"https://v3.bootcss.com/",
+				"https://www.csdn.net/"
+			]
+		}
+	],
+	"user3": [
+		{
+			"clttitle": [
+				"可汗学院",
+				"TED",
+				"网易公开课",
+				"好知网",
+				"泸江",
+				"Word联盟",
+				"学UI网"
+			],
+			"cltsite": [
+				"https://zh.khanacademy.org/",
+				"https://www.ted.com",
+				"https://open.163.com/",
+				"http://www.howzhi.com/",
+				"https://www.hujiang.com/",
+				"http://www.wordlm.com/",
+				"http://www.xueui.cn/"
+			]
+		}
+	]
+}

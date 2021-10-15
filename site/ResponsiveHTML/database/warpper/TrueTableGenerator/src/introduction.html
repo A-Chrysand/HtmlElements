@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		p.overview {
+			margin: 0;
+			line-height: 1.5em;
+			width: 600px;
+			text-align: start;
+			font-size: 13pt;
+			margin-left: auto;
+			margin-right: auto;
+			text-indent: 2em;
+		}
+
+		.example_table1 {
+			width: 400px;
+			text-align: left;
+			border: 2px solid;
+			border-collapse: collapse;
+		}
+
+		.example_tableunit1 {
+			width: 300px;
+			border: 1px solid;
+		}
+
+		.example_table2 {
+			width: 40%;
+			text-align: center;
+			border: 2px solid black;
+			border-collapse: collapse;
+			text-align: center;
+		}
+
+		.example_tableunit2 {
+			width: 10%;
+			border: 1px solid black;
+		}
+	</style>
+</head>
+
+<body>
+	<p class="overview">
+		这是一个可以生成真值表的工具，你可以输入不同规格的逻辑代数式
+	</p>
+	<p class="overview">
+		举个栗子：p&and;q&rarr;&not;r可以写成：
+	</p>
+	<table class="example_table1" align="center">
+		<tr>
+			<td class="example_tableunit1">p/\q-&gt;~r</td>
+			<td class="example_tableunit1">p*q->-r</td>
+		</tr>
+		<tr>
+			<td class="example_tableunit1">as p&amp;&amp;q-&gt;!r</td>
+			<td class="example_tableunit1"></td>
+		</tr>
+		<tr>
+			<td class="example_tableunit1">as p and q =&gt; not r</td>
+			<td class="example_tableunit1"></td>
+		</tr>
+	</table>
+	<p class="overview">连接词&#8868;和&#8869;可以用T和F代替</p>
+	<table class="example_table2" align="center">
+		<caption>参考符号</caption>
+		<tr>
+			<td class="example_tableunit2">∧</td>
+			<td class="example_tableunit2">∨</td>
+			<td class="example_tableunit2">¬</td>
+			<td class="example_tableunit2">→</td>
+			<td class="example_tableunit2">←</td>
+		</tr>
+	</table>
+</body>
+
+</html>

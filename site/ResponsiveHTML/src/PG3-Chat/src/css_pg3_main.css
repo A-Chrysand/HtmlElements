@@ -1,0 +1,60 @@
+body {
+	margin-top: 1em;
+}
+
+#chatboxtable {
+	width: 100%;
+	height: 500px;
+}
+
+#chatboxtable td {
+	border: brown 1px solid;
+}
+
+.dropdown-menu {
+	min-width: 50px;
+}
+
+#searchbox {
+	padding: 5px;
+	width: 150px;
+	height: 50px;
+}
+
+#lianxirenbox {
+	vertical-align: top;
+	padding: 5px;
+	width: 150px;
+}
+
+#infobox {
+	vertical-align: top;
+	height: 150px;
+	width: 150px;
+}
+
+#inputbox {
+	vertical-align: top;
+	height: 125px;
+}
+
+#lianxirenul {
+	padding: 0;
+	width: 100%;
+}
+
+#chatbox {
+	vertical-align: top;
+}
+
+#lianxirenul .lianxirenli {
+	border: blanchedalmond 1px solid;
+	height: 4em;
+	line-height: 4em;
+	padding: 0 15px;
+	width: 100%;
+}
+
+#groupbox {
+	vertical-align: top;
+}

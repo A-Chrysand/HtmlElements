@@ -1,0 +1,51 @@
+.bg-dark {
+	background-color: rgb(40, 40, 50);
+}
+
+.itemblock {
+	height: 240px;
+	background-color: wheat;
+	border-radius: 10px;
+}
+
+.borderRad-xl {
+	border-radius: 30px;
+}
+
+.borderRad-lg {
+	border-radius: 20px;
+}
+
+.borderRad-mmd {
+	border-radius: 15px;
+}
+
+.borderRad-md {
+	border-radius: 10px;
+}
+
+.borderRad-sm {
+	border-radius: 5px;
+}
+
+@media (min-width: 300px) {
+	/*xxs*/
+	.mt-xs-0 {
+		margin-top: 0;
+	}
+	.mt-xs-1 {
+		margin-top: 0.25rem;
+	}
+	.mt-xs-2 {
+		margin-top: 0.5rem;
+	}
+	.mt-xs-3 {
+		margin-top: 1rem;
+	}
+	.mt-xs-4 {
+		margin-top: 1.5rem;
+	}
+	.mt-xs-5 {
+		margin-top: 3rem;
+	}
+}

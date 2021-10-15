@@ -1,0 +1,29 @@
+<html>
+
+<head>
+	<title>Truth Table Generator</title>
+	<script type="text/javascript" src="./js/act.js"></script>
+	<script type="text/javascript" src="./js/core.js"></script>
+	<script type="text/javascript" src="./js/parser.js"></script>
+	<script type="text/javascript" src="./js/renderer.js"></script>
+	<script type="text/javascript" src="./js/scanner.js"></script>
+	<script type="text/javascript" src="./js/truth-table.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="src/style.css" />
+</head>
+
+<body>
+	<div class="content">
+		<h1 class="title"> 真值表生成器 </h1>
+		<iframe id="iframe" width="100%" scrolling="no" frameborder="0px" src=".\src\introduction.html" height="230px">
+		</iframe>
+
+		<input id="expressionInput" type="text" oninput="go();" placeholder="输入表达式" />
+		<br><br>
+		<div id="table-target">
+			<!-- Generated truth tables go here -->
+		</div>
+	</div>
+</body>
+
+</html>

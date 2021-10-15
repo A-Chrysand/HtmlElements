@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../IndexFX/StaticSet.css" />
+	<link rel="stylesheet" href="../IndexFX/text_style.css" />
+	<link rel="stylesheet" href="table.css" />
+	<title>html表单</title>
+	<style>
+		body {
+			margin-left: 0px;
+			margin-top: -1em;
+			padding: 0px, 0px, 0px, 0px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<p>输入框:</p>
+	<p class="texttab">输入普通文本的框框，如账号：</p>
+	<ul class="codeli">
+		<li> &lt;input type=&quot;text&quot;/&gt;</li>
+	</ul>
+	<span style="margin-left:  4em">样例：文本输入框</span>
+	<input type="text" name="自定义名称" placeholder="文本输入框" />
+	<p class="texttab">输入不给看的文本的框框，如密码：</p>
+	<ul class="codeli">
+		<li> &lt;input type=&quot;password&quot;/&gt;</li>
+
+	</ul>
+	<span style="margin-left:  4em">样例：密码输入框</span>
+	<input type="password" name="自定义名称" placeholder="密码输入框" />
+	<p class="texttab">上面的输入框，都可以添加以下属性来提高可读性：</p>
+	<table class="csstable">
+		<tr>
+			<td style="width: 4em; text-align: center;">属性名</td>
+			<td style="width: 15em; text-align: center;">属性含义</td>
+		</tr>
+		<tr>
+			<td>name</td>
+			<td>输入框的名称(一般用于js控制)</td>
+
+		</tr>
+		<tr>
+			<td>value</td>
+			<td>输入框的数值类型(如数字型和字符型)</td>
+
+		</tr>
+		<tr>
+			<td>placeholder</td>
+			<td>在框中加入提示</td>
+		</tr>
+	</table>
+
+
+	<p>选择框:</p>
+	<p class="texttab">单选框：</p>
+	<ul class="codeli">
+		<li> &lt;input type=&quot;radio&quot;/&gt;</li>
+	</ul>
+	<span style="margin-left:  4em">样例：选择框：</span>
+	<input type="radio" name="自定义名称" /><span>选项1</span>
+	<input type="radio" name="自定义名称" /><span>选项2</span>
+	<p class="texttab">多选框：</p>
+	<ul class="codeli">
+		<li> &lt;input type=&quot;checkbox&quot;/&gt;</li>
+	</ul>
+	<span style="margin-left:  4em">样例：多选框：</span>
+	<input type="checkbox" name="自定义名称" /><span>选项1</span>
+	<input type="checkbox" name="自定义名称" /><span>选项2</span>
+	<input type="checkbox" name="自定义名称" /><span>选项3</span>
+	<input type="checkbox" name="自定义名称" /><span>选项4</span>
+	<p class="texttab">上面的选择框，都可以添加以下属性来提高可读性：</p>
+	<table id="csstable">
+		<tr>
+			<td style="width: 4em; text-align: center;">属性名</td>
+			<td style="width: 15em; text-align: center;">属性含义</td>
+		</tr>
+		<tr>
+			<td>name</td>
+			<td>输入框的名称，选择框的名称一定要相同</td>
+
+		</tr>
+		<tr>
+			<td>checked</td>
+			<td>添加提前勾选选项</td>
+		</tr>
+	</table>
+	<p class="texttab">下拉选项表：</p>
+	<ol class="codeli">
+		<li><span class="sptab">&lt;select&gt;</span></li>
+		<li><span class="sptab"><span class="sptab">&lt;option value=&quot;c1&quot;选项1&lt;/option&gt;</span></span></li>
+		<li><span class="sptab"><span class="sptab">&lt;option value=&quot;c2&quot;选项2&lt;/option&gt;</span></span></li>
+		<li><span class="sptab"><span class="sptab">&lt;option value=&quot;c3&quot;选项3&lt;/option&gt;</span></span></li>
+		<li><span class="sptab">&lt;/select&gt;</span></li>
+		<li class="codeinst">选项将从上到下依次排序</li>
+	</ol>
+	<p class="texttab2">若需设置默认显示，只需要在&lt;option&gt;里添加selected属性</p>
+	<span style="margin-left:  4em">样例：下拉选项表：</span>
+	<select style="width: 100px;">
+		<option value="apple">苹果</option>
+		<option value="banana">香蕉</option>
+		<option value="pear">梨</option>
+		<option value="apple">菠萝</option>
+	</select>
+	<p>文本输入框:</p>
+	<p class="texttab">输入较多文本的框框，如评论、感想、回贴等：</p>
+	<ul class="codeli">
+		<li> &lt;textarea&gt;&lt;/textarea&gt;</li>
+	</ul>
+	<p class="texttab2">可以在&lt;textarea&gt;中添加[maxlength="自定义数值"]属性来控制最大字符输入量</p>
+
+
+</body>
+
+</html>

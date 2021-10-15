@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.bootcss.com/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<title>Document</title>
+	<link rel="stylesheet" href="./src/css_pg2-2_tool.css">
+	<link rel="stylesheet" href="../common.css">
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div>
+			<h1 style="font-size: 2em;font-weight: bolder;text-align: center;">工具箱</h1>
+			<p></p>
+		</div>
+		<div style="display: flex;width: 100%;">
+			<div id="verticalmenu">
+				<ul class="nav" id="verticalmenu_ul">
+					<li class="active">真值表生成器 </li>
+					<li> 3x3矩阵计算器 </li>
+					<li> 3x3矩阵秩计算器 </li>
+					<li> 计算器大全 </li>
+				</ul>
+			</div>
+			<div id="toolbox">
+				<div id="toolboxswitch">
+					<div class="iframeboxs">
+						<iframe height="100%" src="../../database/warpper/TrueTableGenerator/TTGenerator.html"
+							frameborder="0"></iframe>
+					</div>
+					<div class="iframeboxs">
+						<div style="width: 680px;overflow: hidden;">
+							<iframe style="margin-top: -410px;" height="955px"
+								src="https://www.99cankao.com/matrix/matrix-inverse.php" scrolling="no"
+								frameborder="0"></iframe>
+						</div>
+					</div>
+					<div class="iframeboxs">
+						<div style="width: 680px;overflow: hidden;">
+							<iframe style="margin-top: -410px;" height="745px"
+								src="https://www.99cankao.com/matrix/rank-of-matrix.php" scrolling="no"
+								frameborder="0"></iframe>
+						</div>
+					</div>
+					<div class="iframeboxs">
+						<div>
+							<table id="weblisttable">
+								<tr>
+									<td class="webtitle">
+										99参考计算网
+									</td>
+									<td class="gonow">
+										<a target="_blank" href="https://www.99cankao.com/">立即行动↗</a>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<p style="font-size: 1.25em;">适用范围</p>
+										<p class="discription">矩阵：2/3阶行列式、伴随矩阵、矩阵的加减乘法计算</p>
+										<p class="discription">数字：整数、分数、百分数、带分数计算</p>
+										<p class="discription">平面几何：双曲线、抛物线、球冠、三角形、四边形计算</p>
+										<p class="discription">立体几何：球、圆柱体、立方体、棱锥面积、体积、棱长计算</p>
+										<p class="discription">解析几何：三维空间直线方程、重心、中垂线计算</p>
+										<p class="discription">其他计算：日期、进制、物理、电子电路、颜色</p>
+									</td>
+								</tr>
+								<tr>
+									<td class="webtitle">
+										EdrawMath公式编辑器
+									</td>
+									<td class="gonow">
+										<a target="_blank" href="https://math.edrawsoft.cn/">立即行动↗</a>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<p style="font-size: 1.25em;">适用范围</p>
+										<p class="discription">网页版编辑数学公式，可以将编辑好的公式用在学习通提交作业</p>
+									</td>
+								</tr>
+								<tr>
+									<td class="webtitle">
+										函数图像绘制
+									</td>
+									<td class="gonow">
+										<a target="_blank"
+											href="https://zh.numberempire.com/graphingcalculator.php?">立即行动↗</a>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<p style="font-size: 1.25em;">适用范围</p>
+										<p class="discription">在线绘制函数图像，面对复杂的平面函数，可以绘出其图像再仔细分析</p>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+</body>
+
+<script>
+	var animatetime = 200;
+	var animatecounter = 0;
+	var currentlayer = 0;
+	$("#verticalmenu_ul li").eq(0).click(function () {
+		movedecision(currentlayer, 0);
+		currentlayer = 0;
+	});
+	$("#verticalmenu_ul li").eq(1).click(function () {
+		movedecision(currentlayer, 1);
+		currentlayer = 1;
+	});
+	$("#verticalmenu_ul li").eq(2).click(function () {
+		movedecision(currentlayer, 2);
+		currentlayer = 2;
+	});
+	$("#verticalmenu_ul li").eq(3).click(function () {
+		movedecision(currentlayer, 3);
+		currentlayer = 3;
+	});
+
+	function movedecision(fromlayer, tolayer) {
+		console.log
+		if (fromlayer > tolayer) {
+			moveup(fromlayer - tolayer);
+		}
+		else if (fromlayer < tolayer) {
+			movedown(tolayer - fromlayer);
+		}
+	}
+	function moveup(count) {
+		for (; count > 0; count--) {
+			$("#toolboxswitch").animate({ top: '+=700px' }, animatetime);
+
+		}
+	}
+	function movedown(count) {
+		for (; count > 0; count--) {
+			$("#toolboxswitch").animate({ top: '-=700px' }, animatetime);
+
+		}
+	}
+</script>
+
+</html>

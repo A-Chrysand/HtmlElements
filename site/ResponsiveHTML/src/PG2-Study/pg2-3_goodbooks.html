@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.bootcss.com/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<title>Document</title>
+	<script src="../../database/se_pg2-3_booklist.js"></script>
+	<script src="./src/pg2-3_goodbooks.js"></script>
+	<script src="../common.js"></script>
+
+
+</head>
+
+<body>
+	<div class="container">
+		<p style="font-family: '楷体'; font-size: 2em;font-weight: bolder;text-align: center;">好书推荐</p>
+		<div id="bookselectordiv" class="form-inline form-horizontal">
+			<label class="control-label col-sm-0">筛选：</label>
+			<select class="form-control" style="width: 14em;" id="bookselectlist">
+				<option value="none">无</option>
+				<option value="科学">科学</option>
+				<option value="人文">人文</option>
+				<option value="自然">自然</option>
+				<option value="技术">技术</option>
+			</select>
+			<button class="btn btn-default" onclick="bookselect()">确定</button>
+			<span style="float: right;line-height: 2em;" id="countbook"></span>
+		</div>
+		<br>
+		<div id="goodbooktablediv"> </div>
+	</div>
+</body>
+
+<style>
+	table {
+		width: 100%;
+	}
+
+	td {
+		border: rgb(50, 100, 50) 2px solid;
+	}
+
+	.bookimg {
+		width: 300px;
+		height: 300px;
+	}
+
+	.bookdiscription {
+		height: 300px;
+	}
+</style>
+
+</html>

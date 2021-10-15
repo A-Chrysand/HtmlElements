@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.bootcss.com/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<title>page1</title>
+	<script src="../common.js"></script>
+	<link rel="stylesheet" href="./src/css_pg1_main.css">
+</head>
+
+<body>
+	<div id="navdiv">
+		<div id="horzionalnav">
+			<ul>
+				<li>
+					<div class="Guide_front Liactive">主页</div>
+					<div class="Guide_back">读书人上人</div>
+				</li>
+				<li>
+					<div class="Guide_front">恰饭</div>
+					<div class="Guide_back">恰饭人恰饭魂</div>
+				</li>
+				<li>
+					<div class="Guide_front">生活</div>
+					<div class="Guide_back">今日不宜</div>
+				</li>
+			</ul>
+		</div>
+		<div id="pg1_main_iframebox">
+			<iframe id="pg1iframe" class="embed-responsive-item iframepage" scrolling="no"
+				src="./pg1-1_zhuye.html"></iframe>
+		</div>
+	</div>
+</body>
+
+<script>
+	window.onload = function () {
+		GBFheight(0, "pg1_main");
+		GBFheight(0, "centerpagearea");
+	}
+
+	var hei = parent.document.documentElement.clientHeight;
+	$("#horzionalnav li").eq(0).click(function () {
+		switchfn("#horzionalnav li .Guide_front", 0, "Liactive");
+		$("#pg1_main_iframebox iframe").attr("src", "./pg1-1_zhuye.html")
+		GBFheight(50, "pg1_main", 841);
+		GBFheight(50, "centerpagearea", 841);
+
+	})
+	$("#horzionalnav li").eq(1).click(function () {
+		switchfn("#horzionalnav li .Guide_front", 1, "Liactive");
+		$("#pg1_main_iframebox iframe").attr("src", "./pg1-2_lunch.html")
+		GBFheight(150, "pg1_main", 560);
+		GBFheight(-100, "centerpagearea", hei);
+	})
+	$("#horzionalnav li").eq(2).click(function () {
+		switchfn("#horzionalnav li .Guide_front", 2, "Liactive");
+		$("#pg1_main_iframebox iframe").attr("src", "./pg1-3_life.html")
+		GBFheight(150, "pg1_main", 530);
+		GBFheight(-100, "centerpagearea", hei);
+	})
+
+	function switchfn(target, num, classname) {
+		$(target + ":not(:eq(" + num + "))").removeClass(classname);
+		$(target + ":eq(" + num + ")").addClass(classname);
+	}
+</script>
+
+</html>

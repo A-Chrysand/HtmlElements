@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.bootcss.com/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+	<title>Lenvivo Vantage</title>
+	<link rel="stylesheet" href="./src/commonsetting/CommonSetting.css">
+</head>
+<style>
+	.nav-item {
+		height: var(--navbar_Height);
+	}
+</style>
+
+
+<body class="d-flex flex-column h-100">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid">
+			<!--导航栏左上角标头-->
+			<span class="navbar-brand">
+				<div class="d-inline-block align-top"
+					style="background-color: rgb(71, 223, 243);width: 30px;height: 30px;margin: 0;pad: 0;">
+				</div>
+				<div class="d-inline-block align-top" style="width: 4em;">
+					<span class="d-block d-sm-none">当前为xs</span>
+					<span class="d-none d-sm-block d-md-none">当前为sm</span>
+					<span class="d-none d-md-block d-lg-none">当前为md</span>
+					<span class="d-none d-lg-block d-xl-none">当前为lg</span>
+					<span class="d-none d-xl-block d-xxl-none">当前为xl</span>
+					<span class="d-none d-xxl-block">当前为xxl</span>
+				</div>
+			</span>
+			<!--手机端导航栏汉堡菜单按钮-->
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#NavbarContent"
+				aria-controls="NavbarContent" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<!--桌面端导航栏-->
+			<div class="collapse navbar-collapse" id="NavbarContent">
+				<!--导航栏内容-->
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link active">首页</a>
+					</li>
+					<!--下拉菜单-->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+							我的设备
+						</a>
+						<ul class="dropdown-menu col-xs-12 box-lg">
+							<li>
+								<ul class="dropdown-left"
+									style="width: 50%;float: left;list-style:none;margin: 0;padding: 0;">
+									<li><span class="dropdown-header">设备信息</span></li>
+									<li><a class="dropdown-item dropdown_listlink">设备详细设置</a></li>
+									<li><a class="dropdown-item dropdown_listlink">系统更新</a></li>
+								</ul>
+								<ul class="dropdown-right"
+									style="width: 50%;float: right;list-style:none;margin: 0;padding: 0;">
+									<li><span class="dropdown-header">设备设置</span></li>
+									<li><a class="dropdown-item dropdown_listlink">电源管理</a></li>
+									<li><a class="dropdown-item dropdown_listlink">音频</a></li>
+									<li><a class="dropdown-item dropdown_listlink">显示屏和摄像头</a></li>
+									<li><a class="dropdown-item dropdown_listlink">输入和附件</a></li>
+								</ul>
+							</li>
+							<!--？Why？wHu？whY？-->
+							<li><span class="dropdown-item"></span></li>
+						</ul>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link">WIFI安全</a>
+					</li>
+					<!--下拉菜单-->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+							支持服务
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item dropdown_listli">获取帮助</a></li>
+							<li><a class="dropdown-item dropdown_listli">硬件扫描</a></li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle d-none d-lg-block" id="navbarDropdown" role="button"
+							data-bs-toggle="dropdown" style="padding: 5px; ">
+							<div class="d-inline-block align-top"
+								style="background-color: rgba(0, 0, 0,0.5);width: 40px;height: 40px;margin-top: 2px;">
+							</div>
+						</a>
+						<a class="nav-link dropdown-toggle d-lg-none" id="navbarDropdown" role="button"
+							data-bs-toggle="dropdown">
+							设置
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item dropdown_listli">首选项设置</a></li>
+							<li><a class="dropdown-item dropdown_listli">提供反馈</a></li>
+						</ul>
+					</li>
+
+				</ul>
+				<!--搜索-->
+				<div class="d-flex col-xl-4 d-lg-none d-xl-flex">
+					<input class="form-control me-2" type="search" placeholder="Search">
+					<button class="btn btn-outline-success btn-info" type="submit">
+						<span style="line-height: 1em;width:4em; display: inline-block">搜索</span>
+					</button>
+				</div>
+
+				<!--下拉菜单-->
+				<div class="dropdown d-none d-lg-flex d-xl-none">
+					<button class="dropdown-toggle btn btn-info" data-bs-toggle="dropdown">
+						Search
+					</button>
+					<div class="dropdown-menu" style="width: 300px;;margin-left: -200px;padding: 7px;">
+						<span class="dropdown-item d-flex" style="padding: 0px 0px;">
+							<input class="form-control me-2" type="search" placeholder="Search">
+							<button class="btn btn-outline-success btn-info" type="submit">
+								搜索
+							</button>
+						</span>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</nav>
+	<Background id="top_BG"></Background>
+	<iframe id="index_iframe" class="responsitve-item" src="./src/1_Shouye/Shouye.html" frameborder="none" width="100%"
+		allowfullscreen allowTransparency="true"></iframe>
+	<footer class="footer mt-auto container-fluid d-none d-lg-block">
+		<div class="row">
+			<span class="col d-lg-none d-xxl-block"></span>
+			<span class="col">CPU温度：####℃</span>
+			<span class="col">GPU温度：####℃</span>
+			<span class="col">SSD温度：####℃</span>
+			<span class="col">HDD温度：####℃</span>
+			<span class="col">RAM温度：####℃</span>
+			<span class="col">南桥温度：####℃</span>
+			<span class="col d-lg-none d-xxl-block"></span>
+		</div>
+	</footer>
+</body>
+
+<style>
+	.dropdown,
+	.nav-link {
+		cursor: pointer;
+	}
+
+	.nav-link {
+		line-height: calc(var(--navbar_Height) - 16px);
+	}
+
+	.nav-link.active {
+		background-color: rgb(71, 123, 243) !important;
+	}
+
+	.dropdown-header {
+		cursor: text;
+		font-size: 1em;
+		display: block;
+		width: 100%;
+		padding: 0.25rem 1rem;
+		font-weight: 700;
+		color: #212529;
+	}
+
+	#top_BG {
+		position: fixed;
+		left: 0px;
+		z-index: -1;
+		width: 100%;
+		height: 400px;
+		background-image: linear-gradient(to bottom, rgba(36, 171, 250, 0.5), rgba(0, 0, 0, 0));
+
+	}
+
+	#index_iframe {
+		height: calc(100vh);
+		background-color: rgba(0, 0, 0, 0);
+	}
+
+	footer {
+		font-size: 0.75em;
+		padding: 3px;
+		text-align: center;
+		background-color: rgba(0, 113, 158, 0.2);
+	}
+</style>
+<!--script>
+	$(function () {
+		//鼠标移入和移出，显示或隐藏子菜单
+		$("li.dropdown").mouseover(function () {
+			$(this).children(".dropdown-menu").show();
+		}).mouseout(function () {
+			$(this).children(".dropdown-menu").hide();
+		});
+		//点击子菜单项的时候隐藏子菜单
+		$(".dropdown-item").click(function () {
+			$(this).parent(".dropdown-menu").hide();
+		});
+	});
+</script-->
+<script src="./index.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+	@media (min-width: 300px) {
+
+		/*xxs*/
+		.nav-link {
+			padding-left: 1em !important;
+		}
+	}
+
+
+	@media (min-width: 576px) {
+
+		/*xs*/
+		.nav-link {
+			padding-left: 1em !important;
+		}
+	}
+
+	@media (min-width: 768px) {
+
+		/*sm*/
+		.nav-link {
+			padding-left: 1em !important;
+		}
+	}
+
+	@media (min-width: 992px) {
+
+		/*lg*/
+		.box-lg {
+			margin-left: -6em;
+			width: 20em;
+		}
+
+		.navbar {
+			padding-top: 0px;
+			padding-bottom: 0px;
+			--navbar_Height: 56px;
+			height: var(--navbar_Height);
+		}
+
+		.navbar .nav-item {
+			line-height: var(--navbar_Height);
+			width: 6.5em;
+			text-align: center;
+		}
+
+		.navbar .dropdown-item {
+			line-height: 1.75em;
+		}
+
+		.nav-item:nth-child(1) a,
+		.nav-item:nth-child(3) a {
+			padding-left: 8px !important;
+		}
+
+
+	}
+
+	@media (min-width: 1200px) {
+		/*xl*/
+	}
+
+	@media (min-width: 1400px) {
+		/*xxl*/
+	}
+</style>
+
+</html>

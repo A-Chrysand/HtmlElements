@@ -1,0 +1,66 @@
+body {
+	--Num_donghuashijian: 0.1s;
+	--totalheight: 36px;
+}
+
+#horzionalnav ul {
+	position: absolute;
+	display: flex;
+	padding: 0px;
+	margin: 0px;
+	/*width:70%;left:15%;*/
+	width: 100%;
+	height: var(--totalheight);
+	border-bottom: none;
+	cursor: pointer;
+}
+
+#horzionalnav li {
+	padding: 0px;
+	height: inherit;
+	width: inherit;
+	line-height: var(--totalheight);
+	list-style-type: none;
+	text-align: center;
+	cursor: pointer;
+	transform-style: preserve-3d;
+	transition: all var(--Num_donghuashijian);
+	border: 1px rgba(100, 100, 255, 0.7) dotted;
+}
+
+#horzionalnav li:hover {
+	transform: rotateX(90deg);
+}
+
+#horzionalnav li .Liactive {
+	background-color: orange;
+}
+
+.Guide_back, .Guide_front {
+	margin: 0px;
+	padding: 0px;
+	position: absolute;
+	width: 100%;
+}
+
+.Guide_front {
+	height: var(--totalheight);
+	background-color: rgb(136, 205, 241);
+	transform: translateZ(calc(var(--totalheight)*0.5));
+}
+
+.Guide_back {
+	height: var(--totalheight);
+	background-color: pink;
+	transform: translateY(calc(var(--totalheight)*0.5)) rotateX(-90deg);
+}
+
+#pg1_main_iframebox {
+	padding-top: 50px;
+}
+
+.iframepage {
+	border: none;
+	width: 100%;
+	height: 500px;
+}

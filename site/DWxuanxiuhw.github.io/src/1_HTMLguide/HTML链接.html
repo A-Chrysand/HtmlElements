@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width={device-width}, initial-scale=1.0">
+    <link rel="stylesheet" href="../IndexFX/text_style.css" />
+	<link rel="stylesheet" href="../IndexFX/StaticSet.css" />
+	<link rel="stylesheet" href="../1_HTMLguide/table.css" />
+    <title>htmllink</title>
+    <style>
+		body {
+			margin-left: 0px;
+			margin-top: -1em;
+			padding: 0px, 0px, 0px, 0px;
+		}
+
+	</style>
+</head>
+<body>
+    <p>连接：</p>
+	<p class="texttab">点击[Text]就能跳转到URL</p>
+	<ul class="codeli">
+		<li>&lt;a href=&quot;URL&quot;&gt;Text&lt;/a&gt;</li>
+	</ul>
+
+	<p class="texttab">URL可指向：</p>
+	<p class="texttab">1、同一页面的某一位置</p>
+	<ol class="codeli">
+		<li>&lt;a href=&quot;./blog.html&quot;&gt;博客&lt;/a&gt;</li>
+		<li>&lt;h2&nbsp;id=&quot;toc1&quot;&gt;简介&lt;/h2&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		<li class="codeinst">此时点击目录中的简介就会跳转到简介的介绍页面</li>
+	</ol>
+	<p class="texttab">2、同一网站的不同文件</p>
+	<ul class="codeli">
+		<li>&lt;a href=&quot;./blog.html&quot;&gt;博客&lt;/a&gt;</li>
+		<li class="codeinst">/*可以用来切换到子页面*/</li>
+	</ul>
+
+	<p class="texttab">3、指向另一个网站</p>
+	<ul class="codeli">
+		<li>&lt;a href=&quot;https://www.baidu.com&quot;title=&quot;Baidu搜索&quot;&gt;Baidu&lt;/a&gt;</li>
+		<li class="codeinst">跳转到百度</li>
+	</ul>
+	<p>链接属性：</p>
+	<p class="texttab">未访问的链接</p>
+	<ul class="codeli">
+		<li>a:link</li>
+	</ul>
+	<p class="texttab">已访问的链接</p>
+	<ul class="codeli">
+		<li>a:visited</li>
+	</ul>
+	<p class="texttab">当有鼠标悬停在链接上</p>
+	<ul class="codeli">
+		<li>a:hover</li>
+	</ul>
+	<p class="texttab">被选择的链接</p>
+	<ul class="codeli">
+		<li>a:active</li>
+	</ul>
+	<p class="texttab">发送邮件</p>
+	<ul class="codeli">
+		<li>&lta href="mailto:someone@email.com"&gtsomeone&lt/a&gt</li>
+		<li class="codeinst">点击上文中的someone就能发送邮件</li>
+	</ul>
+	<p class="texttab">target属性</p>
+	<ul class="codeli">
+		<li>&lta href="URL" target="_blank"&gtHTML&lt/a&gt</li>
+		<li class="codeinst">点击URL后在_blank(新建标签页)打开UR</li>
+    </ul>
+    <footer style="height: 30px;"></footer>
+</body>
+</html>

@@ -1,0 +1,79 @@
+body {
+	background: url("../../image/bg/loginbg.jpg")center fixed no-repeat;
+	min-width: 1000px;
+}
+
+/*#topbg {
+	position: fixed;
+	top: 0px;
+	background: url("../../image/bg/top.jpg") top no-repeat;
+	width: 100%;
+	height: 400px;
+	z-index: -1;
+}
+
+#bottombg {
+	position: fixed;
+	bottom: 0px;
+	background: url("../../image/bg/bottom.jpg") bottom no-repeat;
+	width: 100%;
+	height: 500px;
+	z-index: -1;
+}*/
+
+#table-div {
+	width: 525px;
+	margin-top: 200px;
+	margin-left: 60%;
+	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(250, 250, 250, 0.1));
+	padding: 10px;
+	border-radius: 15px;
+	border: blanchedalmond 2px solid;
+}
+
+#AccountTable {
+	width: 500px;
+}
+
+#login, #register {
+	height: 65px;
+	width: 25%;
+	text-align: center;
+	cursor: pointer;
+	font-size: 2em;
+	font-weight: bold;
+	color: brown;
+}
+
+#AccountTableInfo {
+	border-color: rgba(255, 150, 150, 0.5);
+	border-width: 1px;
+	border-style: solid;
+	overflow: hidden;
+	height: 300px;
+	max-width: 500px;
+}
+
+#bottomtab {
+	position: relative;
+	width: 850px;
+}
+
+.form-group {
+	line-height: 0.75em;
+	display: flex;
+	width: 350px;
+	margin: 0 auto;
+}
+
+#Login_bottomtab {
+	padding: 0px;
+	margin-left: 60px;
+	margin-right: 90px;
+	line-height: 1.25em;
+}
+
+.form-group label {
+	line-height: 1em;
+	text-align: center;
+}

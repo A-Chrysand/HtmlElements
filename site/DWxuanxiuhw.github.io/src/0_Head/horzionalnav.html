@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<title>hwmainpg</title>
+<link rel="stylesheet" href="../IndexFX/StaticSet.css" />
+<link rel="stylesheet" href="../0_Head/horzionalnav.css" />
+
+<script src="../0_Head/horzionalnav.js"></script>
+<style>
+
+    #Head_HelloWorld {
+        height: 120px;
+        margin-top: 0px;
+        padding: 0px;
+        border: 0px;
+    }
+
+    #ado {
+        transform:scale(1,0.5);
+        position: absolute;
+        display: block;
+        float: right;
+        right: 20%;
+        top:60px;
+        opacity: 0.03;
+    }
+</style>
+</head>
+
+<body>
+    <div>
+        <div>
+            <iframe scrolling="no" id="Head_HelloWorld" src="../0_Head/HelloWorld.html"></iframe>
+        </div>
+        <div id="ado">
+            <audio controls="controls" autoplay="autoplay" loop="loop" id="adoplayer">
+                <source src="../../audio/Illusion 130.mp3" type="audio/mp3" />
+                <source src="../../audio/Illusion 128.ogg" type="audio/ogg" />
+                <embed height="50" width="300" src="song.mp3" />
+            </audio>
+        </div>
+    </div>
+
+
+    <div id="navdiv">
+        <div id="horzionalnav">
+            <ul>
+                <li class="hz_nav_li">
+                    <div class="Guide_front">HTML学习笔记</div>
+                    <div class="Guide_back">HTML学习笔记</div>
+                </li>
+                <li>
+                    <div class="Guide_front">CSS简介</div>
+                    <div class="Guide_back">CSS简介</div>
+
+                </li>
+                <li>
+                    <div class="Guide_front">JS学习笔记</div>
+                    <div class="Guide_back">JS学习笔记</div>
+                </li>
+                <li>
+                    <div class="Guide_front">Ac's工具箱</div>
+                    <div class="Guide_back">Ac's工具箱</div>
+                </li>
+                <li>
+                    <div class="Guide_front">网页开发网站推荐</div>
+                    <div class="Guide_back">网页开发网站推荐</div>
+                </li>
+            </ul>
+            <div id="horzionalnav_ifbox">
+                <iframe src="../1_HTMLguide/HTMLguide.html" class="hz_nav_li_showone" id="hz_nav_htmlguide"></iframe>
+                <iframe src="../2_CSSguide/CSS1-jianjie.html" class="hz_nav_li_hiddenone" id="hz_nav_cssguide"></iframe>
+                <iframe src="../pg/js.html" class="hz_nav_li_hiddenone" id="ah3"></iframe>
+                <iframe src="../pg/tool.html" class="hz_nav_li_hiddenone" id="ah4"></iframe>
+                <iframe src="../pg/userful.html" class="hz_nav_li_hiddenone" id="ah5"></iframe>
+            </div>
+            <style>
+                #hz_nav_htmlguide {
+                    height: 1300px;
+                }
+
+                #hz_nav_cssguide {
+                    padding-top: 40px;
+                    height: 1500px;
+                }
+
+                #ah3,
+                #ah4,
+                #ah5 {
+                    height: 1200px;
+                }
+            </style>
+        </div>
+    </div>
+</body>
+
+</html>
