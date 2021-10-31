@@ -1,0 +1,181 @@
+$sidebar-fullwidth: 200px
+$sidebar-halfwidth: 0px
+$navbar-height: 50px
+$sm: 576px
+$md: 992px
+$animatetime0_25s: 0.25s
+body
+    margin: 0 //如果不用bootstrap就需要这个
+.control-show
+    width: $sidebar-fullwidth
+    .alink
+        display: block
+    @media (max-width: 992px)
+        box-shadow: 0 0 30px rgba(0,0,0,0.25)
+
+.control-coll
+    .alink
+        display: none
+    @media ( max-width:  $md)
+        width: 0
+
+@media (min-width:  $md)
+    .control-show,.control-coll
+        width: $sidebar-fullwidth
+        display: block
+        .alink
+            display: block
+
+header
+    width: 100%
+    background-color: wheat
+    .nav-brand
+        font-size: 2rem
+        font-weight: bold
+        text-align: center
+        line-height: 50px
+        margin: 0
+
+.side-bar
+    position: fixed
+    left: 0
+    bottom: 0
+    top: 0
+    height: 100vh
+    transition: all $animatetime0_25s ease-in-out
+    background-color: rgba(163, 229, 255, 0.875)
+    &:after
+        background-color: rgba(57, 126, 255, 0.849)
+        content: ""
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        height: $navbar-height
+        z-index: -1
+    ul
+        position: absolute
+        transform: translate(-50%, 0)
+        top: $navbar-height
+        left: 50%
+        text-align: center
+        padding-left: 0
+        overflow: hidden
+
+        li
+            list-style: none
+            width: 200px
+            font-size: 22px
+            padding: 5px
+            transition: 0.25s //这个是切换标签页时的动画
+            &.active
+                a
+                    color: red !important
+                    background: #56adff
+            a
+                color: white
+                text-decoration: none
+                transition: $animatetime0_25s //这个是切换标签页时的动画
+                &:hover
+
+                    color: orange
+
+    .toggle-hamburg-icon
+        background-color: #ff7e0017
+        @media ( max-width: 992px )
+            display: inline-block
+        @media ( min-width: 992px )
+            display: none
+
+        .open_stage_button, .close_stage_button
+            position: fixed
+            top: 0
+            left: 0
+            z-index: 999
+            width: 50px
+            height: 50px
+            color: black
+            cursor: pointer
+            transition: all 1s ease-in-out
+            padding: 0
+            font-size: 20px
+        .open_stage_button
+            display: block
+            background-color: yellow
+        .close_stage_button
+            display: none
+            background-color: red
+
+.offset-left-nav
+    @media (min-width:576px) and (max-width: 992px)
+        margin-left: 0
+    @media screen and (min-width: 992px)
+        margin-left: $sidebar-fullwidth
+/****************************container***********************************/
+#div_cf_list, #div_file_list
+    overflow-x: scroll
+    margin-bottom: 0.25rem
+    &::-webkit-scrollbar     //滑块整体
+        @media (max-width : $sm)
+            width: 4px
+            height: 4px
+        @media (min-width : $sm)
+            width: 4px
+            height: 1rem
+
+    &::-webkit-scrollbar-thumb //滑块
+        border-radius: 5px
+        background: rgb(0, 214, 255)
+
+    &::-webkit-scrollbar-track  //轨道
+        border-radius: 0
+        background: rgba(0,0,0,0.1)
+
+///////////////////////////////table
+.table_cf_list
+    td.list_deltaDays
+        text-align: right
+
+    .list_inline_note
+        color: rgba(0,0,0,0.5)
+        font-size: 0.5rem
+    .list_name, .list_deltaDays,.list_method, .list_reward
+        border-left: 1px solid rgb(237, 241, 245)
+
+.table_file_list
+    .list_size
+        max-width: 4rem
+    .list_name
+        width: 100%
+
+.table_file_list, .table_cf_list
+    margin-bottom: 0
+    border-bottom: 1px solid #00000010
+    td, th
+        padding: 12px
+        border-collapse: collapse
+        white-space: nowrap
+    th
+        text-align: center
+    td
+        border-top: 1px solid #00000010
+
+.tr_bk
+    td
+        padding-top: 2px !important
+        padding-bottom: 2px !important
+/*************************footer**************************************/
+footer.offset-left-nav
+    position: fixed
+    bottom: 0
+    height: 2rem
+    width: 100%
+    background-color: rgba(0, 102, 255, 0.478)
+    @media (max-width: $sm)
+        text-align: center
+    @media (min-width: $sm)
+        text-align: left
+    span
+        line-height: 2rem
+
+//////////////////////////////////////////nav
