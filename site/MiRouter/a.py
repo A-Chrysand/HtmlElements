@@ -1,9 +1,8 @@
-import os
+from filetree import localFileTree
+from ftp import ftpconnect, uploadfile
 import json
-from ftplib import FTP
 import datetime
 import sys
-from filetree import localFileTree
 
 
 def cutstring(operation_string, splicechar=";", para_num_of_splicechar=0):
@@ -33,41 +32,22 @@ def cutstring(operation_string, splicechar=";", para_num_of_splicechar=0):
 	return temp
 
 
-def CalcDeltaDays(input_daystring):
-	"""
-    数据格式<string>xx-xx(过去的时间)
-    <string>xx-xx(未到的时间)
-    <string>(无，未知开始时间)
-    <string>？(未知结束时间)
-    """
+def formatDays(input_daystring):
 	strlist = cutstring(input_daystring, "~")
-	today = datetime.date.today()
-	datelist = []
+	today = datetime.date.today()  #print(today) >>> 2021-01-01
+	return_datelist = []
+	##################开始时间
 	if strlist[0] == "":
-		# date0 = today
-		datelist.append("$today")
+		return_datelist.append(str(today))
 	else:
-		temp_time = str(int(today.year)) + "-" + strlist[0]
-		# date0 = datetime.datetime.strptime(temp_time, "%Y-%m-%d").date()
-		datelist.append(
-		    str(datetime.datetime.strptime(temp_time, "%Y-%m-%d").date()))
-	if strlist[1] == "":
-		# date1 = today
-		datelist.append("$today")
-	elif strlist[1] == "？":
-		# date1 = datetime.date(int(today.year), 12, 31)
-		# datelist.append(str(datetime.date(int(today.year), 12, 31)))
-		datelist.append("？")
+		return_datelist.append(str(today.year) + "-" + strlist[0])
+	##################结束时加
+	if strlist[1] == "？" or strlist[1] == '?' or strlist[1] == "":
+		return_datelist.append("？")
 	else:
-		temp_time = str(today.year) + "-" + strlist[1]
-		# date1 = datetime.datetime.strptime(temp_time, "%Y-%m-%d").date()
-		datelist.append(
-		    str(datetime.datetime.strptime(temp_time, "%Y-%m-%d").date()))
-
-	# deltadate = date1 - date0
-	# deltadate = cutstring(str(deltadate), " ", 1)
-	# datelist.append(deltadate[0])
-	return datelist
+		return_datelist.append(
+		    str(today.year) + "-" + strlist[1] + " 23:59:59")
+	return return_datelist
 
 
 def readfile():
@@ -84,7 +64,7 @@ def readfile():
 		tempdict["name"] = linelist[i]
 		# 第一行 活动标题
 		i += 1
-		temp_calcdate = CalcDeltaDays(linelist[i])
+		temp_calcdate = formatDays(linelist[i])
 		# 第二行、活动时间
 		tempdict["fromtime"] = temp_calcdate[0]
 		tempdict["totime"] = temp_calcdate[1]
@@ -112,53 +92,29 @@ def readfile():
 		print("Json write done")
 
 
-# 连接ftp
-def ftpconnect(host, port, username, password):
-	ftp = FTP()
-	# 打开调试级别2，显示详细信息
-	# ftp.set_debuglevel(2)
-	ftp.connect(host, port)
-	ftp.login(username, password)
-	return ftp
-
-
-# 从本地上传文件到ftp
-def uploadfile(ftp, remotepath, localpath):
-	bufsize = 1024
-	fp = open(localpath, "rb")
-	ftp.storbinary("STOR " + remotepath, fp, bufsize)
-	ftp.set_debuglevel(0)
-	print('%-14s' % "ftp done", end="")
-	fp.close()
-
-
 def main(argv):
-	if argv[1] == '?' or argv == '？':
-		print("无参数 生成并上传json\nargv[1] == a 上传全部文件\nargv[1] == t 只生成json")
-		return 0
-	else:
+	if (len(argv) == 1):  #不填任何参数的Debug用
 		readfile()
-	if (argv[1] == 't'):
 		return 0
 	else:
-		if len(argv) == 1:
-			# 上传文件，第一个是要上传到ftp服务器路径下的文件，第二个是本地要上传的的路径文件
+		if argv[1] == '?' or argv == '？':
+			print("无参数 生成json\nargv[1] == a 上传全部文件\nargv[1] == j 生成并上传json")
+			return 0
+		elif argv[1] == 'a':
+			readfile()
+			a = localFileTree()
+			treelist = a.print_tree("./html/")
+			ftp = ftpconnect("192.168.123.1", 21, "root", "26132613")
+			for i in range(len(treelist[0])):
+				uploadfile(ftp, "/mnt/sda1" + treelist[0][i], treelist[1][i])
+				print(treelist[0][i])
+		elif argv[1] == 'j':
+			readfile()
 			ftp = ftpconnect("192.168.123.1", 21, "root", "26132613")
 			uploadfile(ftp, "/mnt/sda1/src/a.json", ".\\html\\src\\a.json")
 			print('%-30s' % "src/a.json")
-
-		elif len(argv) == 2:
-			if argv[1] == "a":
-				a = localFileTree()
-				treelist = a.print_tree("./html/")
-				ftp = ftpconnect("192.168.123.1", 21, "root", "26132613")
-				for i in range(len(treelist[0])):
-					uploadfile(ftp, "/mnt/sda1" + treelist[0][i],
-					           treelist[1][i])
-					print(treelist[0][i])
 		else:
-			print("unuploaded")
+			return 0
 
 
-if __name__ == "__main__":
-	main(sys.argv)
+main(sys.argv)

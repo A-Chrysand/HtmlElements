@@ -1,3 +1,7 @@
+var PAST_DAYS = -999
+var UNKNOWN_END_DAYS = 0.1
+
+
 var cfa = {
     data: function () {
         return {
@@ -7,75 +11,83 @@ var cfa = {
     },
     methods: {
         getJSON: function () {
-            var xhrstr = new XMLHttpRequest()
+            let xhrstr = new XMLHttpRequest()
             xhrstr.open("GET", "./src/a.json");
             xhrstr.responseType = "json"
             xhrstr.onload = response
             xhrstr.send()
-            var _this = this	//important! 用_this指代整个组件本体,this随函数变化
+            let _this = this	//important! 用_this指代整个组件本体,this随函数变化
             function response(e) {
                 if (xhrstr.status == 200) {
-                    _this.calcDays(this.response)
+                    _this.inittable(this.response)
                 }
             }
         },
-        calcDays: function (resp) {
-            //创建今日时间对象
-            /*var temp_struct_date = new Date()
-            var temp_str_todate = temp_struct_date.getFullYear().toString() + '-' + (temp_struct_date.getMonth() + 1).toString() + '-' + temp_struct_date.getDate().toString()
-            var obj_today = new Date(Date.parse(temp_str_todate.replace(/-/g, "/")))*/
+        inittable: function (response) {
+            let tempList = []
+            tempList = this.calcDays(response)
+            var tempIndex = this.sortListIndex(tempList)
+            this.devideList(tempIndex, tempList)
+        },
+        calcDays: function (respon) {
             var obj_today = new Date()
-            var return_data = resp
-            //循环修改待渲染数据
-            for (let i = 0; i < return_data.length; i++) {
+            //////////规格化
+            for (let i = 0; i < respon.length; i++) {
                 ///////////////////////////////开始时间转换
-                if (return_data[i]["fromtime"] == "$today") {
-                    var startLogTimeDate = obj_today
-                } else {
-                    var startLogTimeDate = new Date(Date.parse(return_data[i]["fromtime"].replace(/-/g, "/")))
-                }
+                var startLogTimeDate = new Date(Date.parse(respon[i]["fromtime"].replace(/-/g, "/")))
                 ///////////////////////////////结束时间转换
-                if (return_data[i]["totime"] != "？") {
-                    var endLogTimeDate = new Date(Date.parse(return_data[i]["totime"].replace(/-/g, "/")))
-                    if (endLogTimeDate > startLogTimeDate) {
-                        return_data[i]["deltaDays"] = parseInt(Math.abs(endLogTimeDate - startLogTimeDate) / 1000 / 60 / 60 / 24);
-                    } else {
-                        return_data[i]["deltaDays"] = '0'
-                    }
-                    return_data[i]["totime"] = return_data[i]["totime"].slice(5, return_data[i]["totime"].length)
-                } else {
-                    return_data[i]["deltaDays"] = '--'
-                    return_data[i]["totime"] = "？"
+                if (respon[i]["totime"] == "？" || respon[i]["totime"] == "？") {
+                    respon[i]["deltaDays"] = UNKNOWN_END_DAYS
+                    respon[i]["totime"] = "？"
                 }
-                //////////////检测是否是today
-                if (startLogTimeDate > obj_today) {
-                    var float_temp_deltaday = -1 * parseFloat(Math.abs(startLogTimeDate - obj_today) / 1000 / 60 / 60 / 24).toFixed(1);
-                    if (float_temp_deltaday > -1) {
-                        return_data[i]["deltaDays"] = parseInt(float_temp_deltaday) - 1
-                    } else {
-                        return_data[i]["deltaDays"] = parseInt(float_temp_deltaday)
-                    }
-                    return_data[i]["fromtime"] = return_data[i]["fromtime"].slice(5, return_data[i]["fromtime"].length)
-                } else {
-                    return_data[i]["fromtime"] = "now"
+                else {
+                    var endLogTimeDate = new Date(Date.parse(respon[i]["totime"].replace(/-/g, "/")))
                 }
+                //////////////////////////////过期、now、未开始计算
+                if (respon[i]["totime"] != "？") {
+                    if (obj_today > endLogTimeDate) { //过期
+                        respon[i]["fromtime"] = "过期"
+                        respon[i]["totime"] = "过期"
+                        respon[i]["deltaDays"] = PAST_DAYS
+                    } else if (obj_today < startLogTimeDate) {  //future
+                        var float_caledData = -1 * parseFloat(Math.abs(startLogTimeDate - obj_today) / 1000 / 60 / 60 / 24);
+                        respon[i]["deltaDays"] = float_caledData
+                        respon[i]["fromtime"] = respon[i]["fromtime"].slice(5, respon[i]["fromtime"].length)
+                        respon[i]["totime"] = respon[i]["totime"].slice(5, respon[i]["totime"].length - 9)
+                    }
+                    else {  //now
+                        var float_caledData = parseFloat(Math.abs(endLogTimeDate - obj_today) / 1000 / 60 / 60 / 24);
+                        respon[i]["deltaDays"] = float_caledData
+                        respon[i]["fromtime"] = "now"
+                        respon[i]["totime"] = respon[i]["totime"].slice(5, respon[i]["totime"].length - 9)
+                    }
+                } else {
+                    if (obj_today < startLogTimeDate) {  //future
+                        var float_caledData = -1 * parseFloat(Math.abs(startLogTimeDate - obj_today) / 1000 / 60 / 60 / 24);
+                        respon[i]["deltaDays"] = float_caledData
+                        respon[i]["fromtime"] = respon[i]["fromtime"].slice(5, respon[i]["fromtime"].length)
+                        //respon[i]["totime"] = respon[i]["totime"].slice(5, respon[i]["totime"].length - 9)
+                    }
+                    else {  //now
+                        respon[i]["fromtime"] = "now"
+                    }
+                }
+                ///////////////////////////后处理
             }
-            this.tdsort(return_data)
+            return respon
         },
-        tdsort: function (return_data) {
+        sortListIndex: function (caledData) {
+            //future:-xx days || past: -9999days || now: xx days
             var temp_deltaday = []
-            for (var i = 0; i < return_data.length; i++) {
-                if (return_data[i]["deltaDays"] != "--")
-                    temp_deltaday.push(return_data[i]["deltaDays"])
-                else
-                    temp_deltaday.push(999)
+            for (var i = 0; i < caledData.length; i++) {
+                temp_deltaday.push(caledData[i]["deltaDays"])
             }
             var deltadayindex = []
-            var static_delayday_length = temp_deltaday.length
             var max, maxi
-            for (var j = 0; j < static_delayday_length; j++) {
+            for (var j = 0; j < temp_deltaday.length; j++) {
                 maxi = 0
                 max = temp_deltaday[0]
+                //过期=-999，未知=-888
                 for (var i = 0; i < temp_deltaday.length - 1; i++) {
                     if (temp_deltaday[i + 1] >= max) {
                         max = temp_deltaday[i + 1]
@@ -87,36 +99,68 @@ var cfa = {
                 } else {
                     deltadayindex.push(maxi)
                 }
-
                 temp_deltaday[maxi] = -32767
             }
-            var temp_obj = []
-            for (var i = 0; i < static_delayday_length; i++) {
-                temp_obj[i] = return_data[deltadayindex[i]]
-            }
-            return_data = temp_obj
-            this.devide(return_data)
+            return deltadayindex
+            //deltadayindext同时含有>0和<0的浮点数，并且从大到小排
         },
-        devide: function (datalist) {
+        devideList: function (indexList, datalist) {
             var temp_lclist = []
             var temp_f_lclist = []
-            for (var i = 0; i < datalist.length; i++) {
-                if (datalist[i]["mark"] == undefined) {
-                    temp_lclist.push(datalist[i])
-                } else {
-                    temp_f_lclist.push(datalist[i])
+            for (var i = 0; i < indexList.length; i++) {
+                var j = indexList[i]
+                datalist[j]["dateString"] = datalist[j]["fromtime"] + "~" + datalist[j]["totime"]
+                delete (datalist[j]["fromtime"])
+                delete (datalist[j]["totime"])
+                if (datalist[j]["mark"] == 0) {
+                    if (datalist[j]["deltaDays"] > 0) {
+                        if (datalist[j]["deltaDays"] > 1) {
+                            datalist[j]["deltaDays"] = parseInt(datalist[j]["deltaDays"])
+                        }
+                        temp_f_lclist.push(datalist[j])
+                    }
+                    else {
+                        if (datalist[j]["deltaDays"] == PAST_DAYS) {
+                            datalist[j]["dateString"] = "已过期"
+                            datalist[j]["deltaDays"] = "--"
+                        }
+                        else if (datalist[j]["deltaDays"] == UNKNOWN_END_DAYS) {
+                            datalist[j]["deltaDays"] = "--"
+                        }
+                        datalist[j]["deltaDays"] = parseInt(datalist[j]["deltaDays"])
+                        temp_f_lclist.unshift(datalist[j])
+                    }
+                }
+                else {
+                    if (datalist[j]["deltaDays"] > 0) { //>0    now
+                        if (datalist[j]["deltaDays"] > 1) {
+                            datalist[j]["deltaDays"] = parseInt(datalist[j]["deltaDays"])
+                        } else {    //不到1天了
+                            datalist[j]["deltaDays"] = datalist[j]["deltaDays"].toFixed(1)
+                            //datalist[j]["deltaDays"] = '<span style="color:red;">' + datalist[j]["deltaDays"].toFixed(1) + '</span>'
+                        }
+                        temp_lclist.push(datalist[j])
+                    }
+                    else {  //<0 future
+                        if (datalist[j]["deltaDays"] == PAST_DAYS) {
+                            datalist[j]["dateString"] = "已过期"
+                            datalist[j]["deltaDays"] = "--"
+                        }
+                        else if (datalist[j]["deltaDays"] == UNKNOWN_END_DAYS) {
+                            datalist[j]["deltaDays"] = "--"
+                        }
+                        if (datalist[j]["deltaDays"] < -1) {
+                            datalist[j]["deltaDays"] = parseInt(datalist[j]["deltaDays"])
+                        } else {
+                            datalist[j]["deltaDays"] = datalist[j]["deltaDays"].toFixed(1)
+                        }
+                        temp_lclist.push(datalist[j])
+                    }
                 }
             }
             this.lclist = temp_lclist
             this.f_lclist = temp_f_lclist
         },
-        checkmark: function (inputstring) {
-            switch (inputstring) {
-                case 0: return false;
-                case undefined: return true;
-            }
-
-        }
     },
     template: '\
 	<div id="div_cf_list" class="table-responsive">\
@@ -129,17 +173,17 @@ var cfa = {
 				<th class="list_reward">活动主要奖励</th>\
 			</tr>\
 			<tr v-for="item in lclist">\
-				<td v-if="checkmark(item.mark)"  class="list_time">{{item.fromtime}}~{{item.totime}}</td>\
-				<td v-if="checkmark(item.mark)"  class="list_deltaDays"><span>{{item.deltaDays}}</span>天</td>\
-				<td v-if="checkmark(item.mark)"  class="list_name"><a target="_blank" :href="item.link">{{item.name}}</a><span class="list_inline_note">{{item.note}}</span></td>\
-				<td v-if="checkmark(item.mark)"  class="list_method">{{item.method}}</td>\
-				<td v-if="checkmark(item.mark)"  class="list_reward">{{item.reward}}</td>\
+				<td class="list_time">{{item.dateString}}</td>\
+				<td class="list_deltaDays"><span>{{item.deltaDays}}</span>天</td>\
+				<td class="list_name"><a target="_blank" :href="item.link">{{item.name}}</a><span class="list_inline_note">{{item.note}}</span></td>\
+				<td class="list_method">{{item.method}}</td>\
+				<td class="list_reward">{{item.reward}}</td>\
 			</tr>\
             <tr>\
                 <td colspan="5">过气活动</td>\
             </tr>\
             <tr class="tr_bk" v-for="item in f_lclist">\
-                <td class="list_time">{{item.fromtime}}~{{item.totime}}</td>\
+                <td class="list_time">{{item.dateString}}</td>\
                 <td class="list_deltaDays"><span>{{item.deltaDays}}</span>天</td>\
                 <td class="list_name"><a target="_blank" :href="item.link">{{item.name}}</a><span class="list_inline_note">{{item.note}}</span></td>\
                 <td class="list_method">{{item.method}}</td>\
@@ -148,7 +192,6 @@ var cfa = {
         </table>\
 	</div > '
 }
-
 var udf = {
     data: function () {
         return {

@@ -88,7 +88,6 @@
             document.querySelector('.close_stage_button').style.display = "none"
         })
     }
-
     function toggleNav() {
         if (toggleNavStatus === false) {
             document.querySelector(".side-bar").classList.remove('control-coll')
@@ -102,7 +101,16 @@
             //todo 导航栏打开时有bug
         }
     }
-
+</script>
+<script>
+    window.onload = function () {
+        var a = document.querySelectorAll(".list_deltaDays span")
+        for (var i = 0; i < a.length; i++) {
+            if (parseFloat(a[i].innerHTML) < 1 && parseFloat(a[i].innerHTML) > 0) {
+                a[i].style.color = "red";
+            }
+        }
+    }
 </script>
 
 </html>
